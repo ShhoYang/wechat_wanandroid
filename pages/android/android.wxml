@@ -1,0 +1,21 @@
+<view class='container'>
+  <view class='banner'>
+    <swiper indicator-dots='true' autoplay='true' duration='1000' interval='5000'>
+      <swiper-item wx:for='{{banner}}' wx:key='id'>
+        <image src='{{item.imagePath}}' mode='aspectFill' />
+      </swiper-item>
+    </swiper>
+  </view>
+  <view class='list'>
+    <scroll-view class='content' scroll-y='true'>
+      <view class='inner '>
+        <navigator wx:for='{{articles}}' wx:key='_id'>
+          <view class='list-item'>
+            <text>{{item.desc}}</text>
+            <image src='{{item.images[0]}}' mode='widthFix' />
+          </view>
+        </navigator>
+      </view>
+    </scroll-view>
+  </view>
+</view>
