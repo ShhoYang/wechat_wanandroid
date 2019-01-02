@@ -1,21 +1,31 @@
-<view class='container'>
-  <view class='banner'>
-    <swiper indicator-dots='true' autoplay='true' duration='1000' interval='5000'>
-      <swiper-item wx:for='{{banner}}' wx:key='id'>
-        <image src='{{item.imagePath}}' mode='aspectFill' />
-      </swiper-item>
-    </swiper>
-  </view>
-  <view class='list'>
-    <scroll-view class='content' scroll-y='true'>
-      <view class='inner '>
-        <navigator wx:for='{{articles}}' wx:key='_id'>
-          <view class='list-item'>
-            <text>{{item.desc}}</text>
-            <image src='{{item.images[0]}}' mode='widthFix' />
-          </view>
-        </navigator>
+<view class="container">
+  <view class="weui-tab">
+    <view class="weui-navbar">
+      <block wx:for="{{tabs}}" wx:key="*this">
+        <view id="{{index}}" class="weui-navbar__item {{activeIndex == index ? 'weui-bar__item_on' : ''}}" bindtap="tabClick">
+          <view class="weui-navbar__title">{{item}}</view>
+        </view>
+      </block>
+      <view class="weui-navbar__slider" style="left: {{sliderLeft}}px; transform: translateX({{sliderOffset}}px); -webkit-transform: translateX({{sliderOffset}}px);"></view>
+    </view>
+    <view class="weui-tab__panel">
+      <view class="weui-tab__content" hidden="{{activeIndex != 0}}">
+        <scroll-view scroll-y='true'>
+          <navigator class="weui-grid"  wx:for='{{authors}}' wx:key='id'  url="../article/article?id={{item.id}}">
+            <view class="weui-grid__label">{{item.name}}</view>
+          </navigator>
+        </scroll-view>
       </view>
-    </scroll-view>
+      <view class="weui-tab__content" hidden="{{activeIndex != 1}}">
+        <scroll-view scroll-y='true'>
+          <view wx:for='{{tree}}' wx:key='id'>
+            <view class="parentName">{{item.name}}</view>
+            <view class='child'>
+              <navigator class='childName' wx:for='{{item.children}}' wx:key='id' wx:for-item="childName">{{childName.name}}</navigator>
+            </view>
+          </view>
+        </scroll-view>
+      </view>
+    </view>
   </view>
 </view>

@@ -1,36 +1,40 @@
 {
   "pages": [
+    "pages/hot/hot",
     "pages/android/android",
-    "pages/ios/ios",
-    "pages/profile/profile"
+    "pages/find/find",
+    "pages/detail/detail",
+    "pages/article/article"
   ],
   "window": {
-    "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#fff",
+    "backgroundColor": "#f8f8f8",
+    "backgroundTextStyle": "dark",
+    "navigationBarBackgroundColor": "#f8f8f8",
     "navigationBarTitleText": "干货集中营",
-    "navigationBarTextStyle": "black"
+    "navigationBarTextStyle": "black",
+    "enablePullDownRefresh": false
   },
   "tabBar": {
     "color": "#8a8a8a",
     "selectedColor": "#78c257",
     "list": [
       {
+        "pagePath": "pages/hot/hot",
+        "text": "热门",
+        "iconPath": "images/hot.png",
+        "selectedIconPath": "images/hot-selected.png"
+      },
+      {
         "pagePath": "pages/android/android",
-        "text": "Android",
+        "text": "干货",
         "iconPath": "images/android.png",
         "selectedIconPath": "images/android-selected.png"
       },
       {
-        "pagePath": "pages/ios/ios",
-        "text": "iOS",
-        "iconPath": "images/ios.png",
-        "selectedIconPath": "images/ios-selected.png"
-      },
-      {
-        "pagePath": "pages/profile/profile",
+        "pagePath": "pages/find/find",
         "text": "妹子",
-        "iconPath": "images/profile.png",
-        "selectedIconPath": "images/profile-selected.png"
+        "iconPath": "images/find.png",
+        "selectedIconPath": "images/find-selected.png"
       }
     ]
   },

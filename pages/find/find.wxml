@@ -1,0 +1,20 @@
+<view class='container'>
+  <view class='holder' wx:for='{{images}}' wx:key='_id' wx:for-index='index'>
+    <image src='{{item.url}}' data-index='{{index}}' bindload='onImageLoad' binderror='onImageError' />
+  </view>
+  <scroll-view class='list' scroll-y='true'>
+    <view class='listContent'>
+      <view class='listItem'>
+        <view wx:for='{{columnleft}}' wx:key='_id'>
+          <image src='{{item.url}}' style='height:{{item.height}}px' bindtap='preImage' data-url='{{item.url}}' />
+        </view>
+      </view>
+      <view class='listItem'>
+        <view wx:for='{{columnright}}' wx:key='_id'>
+          <image src='{{item.url}}' style='height:{{item.height}}px' bindtap='preImage' data-url='{{item.url}}' />
+        </view>
+      </view>
+    </view>
+  </scroll-view>
+  <include src="../common/loadmore.wxml" />
+</view>

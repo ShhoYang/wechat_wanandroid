@@ -1,0 +1,19 @@
+.holder {
+  display: none;
+}
+
+.listContent {
+  width: 100%;
+  font-size: 0;
+}
+
+.listItem {
+  width: 50%;
+  display: inline-block;
+  vertical-align: top;
+}
+
+.listItem image{
+  width: 100%;
+  height: auto;
+}

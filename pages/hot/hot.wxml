@@ -1,0 +1,18 @@
+<view class='container'>
+  <swiper id='banner' indicator-dots='true' autoplay='true' duration='1000' interval='5000'>
+    <swiper-item wx:for='{{banner}}' wx:key='id'>
+      <image src='{{item.imagePath}}' mode='scaleToFill' />
+    </swiper-item>
+  </swiper>
+
+  <scroll-view scroll-y='true'>
+    <navigator wx:for='{{articles}}' wx:key='_id' url='../detail/detail?url={{item.url}}'>
+      <view class='listItem' wx:if='{{item.images!=null}}'>
+        <text>{{item.desc}}</text>
+        <image src='{{item.images[0]}}' mode='widthFix' />
+      </view>
+    </navigator>
+  </scroll-view>
+
+  <include src="../common/loadmore.wxml" />
+</view>
