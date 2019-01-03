@@ -3,8 +3,9 @@
     "pages/hot/hot",
     "pages/android/android",
     "pages/find/find",
-    "pages/detail/detail",
-    "pages/article/article"
+    "pages/wechat/wechat",
+    "pages/project/project",
+    "pages/detail/detail"
   ],
   "window": {
     "backgroundColor": "#f8f8f8",

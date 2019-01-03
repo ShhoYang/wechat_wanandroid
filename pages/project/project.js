@@ -1,5 +1,6 @@
 const app = getApp()
 let id = 0
+let url = ''
 let page = 1
 let loading = false
 let listData = []
@@ -15,7 +16,7 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function(options) {
+  onLoad: function (options) {
     id = options.id
     page = 1
     wx.startPullDownRefresh()
@@ -24,7 +25,7 @@ Page({
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */
-  onPullDownRefresh: function() {
+  onPullDownRefresh: function () {
     page = 1
     listData = []
     this.loadPageData()
@@ -33,20 +34,20 @@ Page({
   /**
    * 页面上拉触底事件的处理函数
    */
-  onReachBottom: function() {
+  onReachBottom: function () {
     this.setData({
       isHideLoreMore: false
     })
     this.loadPageData()
   },
 
-  loadPageData: function() {
+  loadPageData: function () {
     if (loading) {
       return
     }
     loading = true
     wx.showNavigationBarLoading()
-    app.wanandroid.getWechatArticles(id, page)
+    app.wanandroid.getProjectArticles(id, page)
       .then(result => {
         setTimeout(() => {
           this.loadFinished()
@@ -59,7 +60,7 @@ Page({
       })
   },
 
-  loadFinished: function() {
+  loadFinished: function () {
     wx.hideNavigationBarLoading()
     if (page == 1) {
       wx.stopPullDownRefresh()

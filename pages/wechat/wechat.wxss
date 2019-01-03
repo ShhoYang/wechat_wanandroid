@@ -1,0 +1,16 @@
+.listItem{
+  margin: 24rpx;
+  padding: 24rpx;
+  background: #f8f8f8;
+}
+.title{
+  display: block;
+  font-size: 12pt;
+  color: black;
+}
+
+.time{
+  margin-top: 6rpx;
+  font-size: 10pt;
+  color: #b2b2b2;
+}
