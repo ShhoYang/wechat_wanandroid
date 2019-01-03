@@ -7,6 +7,10 @@ swiper image {
   height: 100%;
 }
 
+.list{
+  background-color: #f0f0f0;
+}
+
 .listItem {
   margin: 24rpx;
   padding: 24rpx;

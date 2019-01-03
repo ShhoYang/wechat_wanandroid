@@ -1,13 +1,10 @@
-const app = getApp()
+const utils = require('../..//utils/refresh')
+const http = getApp().ganhuo
 const holderUrl = 'https://ws1.sinaimg.cn/large/0065oQSqly1fymj13tnjmj30r60zf79k.jpg'
 let leftColumnHeight = 0
 let rightColumnHeight = 0
 let imageWidth = 0
-
 let imageCount = 0
-
-let page = 1
-let loading = false
 
 Page({
 
@@ -39,36 +36,42 @@ Page({
   },
 
   onPullDownRefresh: function() {
-    page = 1
     this.data.images = []
     this.data.columnleft = []
     this.data.columnright = []
     leftColumnHeight = 0
     rightColumnHeight = 0
-    this.loadPageData()
+    utils.loadPageData(
+      true,
+      page => {
+        return http.getList("福利", page)
+      },
+      data => {
+        let images = data.results
+        imageCount = images.length
+        this.setData({
+          images: images
+        })
+      })
   },
 
   onReachBottom: function() {
     this.setData({
       isHideLoreMore: false
     })
-    this.loadPageData()
-  },
-
-  loadPageData: function() {
-    if (loading) {
-      return;
-    }
-    loading = true;
-    app.ganhuo.getList("福利", page).then(result => {
-      setTimeout(() => {
-        let images = result.data.results
+    utils.loadPageData(
+      false,
+      page => {
+        return http.getList("福利", page)
+      },
+      data => {
+        let images = data.results
         imageCount = images.length
         this.setData({
+          isHideLoreMore: true,
           images: images
         })
-      }, 1)
-    })
+      })
   },
 
   onImageError: function(e) {
@@ -103,7 +106,6 @@ Page({
 
     imageCount--
     if (0 == imageCount) {
-      this.loadFinished()
       this.data.images = []
       this.setData({
         columnleft: columnleft,
@@ -112,22 +114,10 @@ Page({
     }
   },
 
-  loadFinished: function() {
-    if (page == 1) {
-      wx.stopPullDownRefresh()
-    } else {
-      this.setData({
-        isHideLoreMore: true
-      })
-    }
-    page++
-    loading = false
-  },
-
-  preImage: function(e){
+  preImage: function(e) {
     console.error(e)
-      wx.previewImage({
-        urls: [e.currentTarget.dataset.url]
-      })
+    wx.previewImage({
+      urls: [e.currentTarget.dataset.url]
+    })
   }
 })

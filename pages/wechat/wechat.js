@@ -1,8 +1,6 @@
-const app = getApp()
+const utils = require('../..//utils/refresh')
+const http = getApp().wanandroid
 let id = 0
-let url = ''
-let page = 1
-let loading = false
 let listData = []
 Page({
 
@@ -18,7 +16,9 @@ Page({
    */
   onLoad: function(options) {
     id = options.id
-    page = 1
+    wx.setNavigationBarTitle({
+      title: options.author
+    })
     wx.startPullDownRefresh()
   },
 
@@ -26,9 +26,18 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function() {
-    page = 1
     listData = []
-    this.loadPageData()
+    utils.loadPageData(
+      true,
+      page => {
+        return http.getWechatArticles(id, page)
+      },
+      data => {
+        listData = data.data.datas
+        this.setData({
+          articles: listData
+        })
+      })
   },
 
   /**
@@ -38,38 +47,17 @@ Page({
     this.setData({
       isHideLoreMore: false
     })
-    this.loadPageData()
-  },
-
-  loadPageData: function() {
-    if (loading) {
-      return
-    }
-    loading = true
-    wx.showNavigationBarLoading()
-    app.wanandroid.getWechatArticles(id, page)
-      .then(result => {
-        setTimeout(() => {
-          this.loadFinished()
-          listData = listData.concat(result.data.data.datas)
-          console.error(listData)
-          this.setData({
-            articles: listData
-          })
-        }, 1500)
+    utils.loadPageData(
+      false,
+      page => {
+        return http.getWechatArticles(id, page)
+      },
+      data => {
+        listData = listData.concat(data.data.datas)
+        this.setData({
+          isHideLoreMore: true,
+          articles: listData
+        })
       })
-  },
-
-  loadFinished: function() {
-    wx.hideNavigationBarLoading()
-    if (page == 1) {
-      wx.stopPullDownRefresh()
-    } else {
-      this.setData({
-        isHideLoreMore: true
-      })
-    }
-    page++
-    loading = false
   }
 })

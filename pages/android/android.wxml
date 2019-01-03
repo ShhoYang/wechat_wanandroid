@@ -11,8 +11,8 @@
     <view class="weui-tab__panel">
       <view class="weui-tab__content" hidden="{{activeIndex != 0}}">
         <scroll-view scroll-y='true'>
-          <navigator class="weui-grid"  wx:for='{{authors}}' wx:key='id'  url="../wechat/wechat?id={{item.id}}">
-            <view class="weui-grid__label">{{item.name}}</view>
+          <navigator class="weui-grid" wx:for='{{authors}}' wx:key='id' url="../wechat/wechat?author={{item.name}}&id={{item.id}}">
+            <text class="weui-grid__label">{{item.name}}</text>
           </navigator>
         </scroll-view>
       </view>
@@ -21,7 +21,7 @@
           <view wx:for='{{tree}}' wx:key='id'>
             <view class="parentName">{{item.name}}</view>
             <view class='child'>
-              <navigator class='childName' wx:for='{{item.children}}' wx:key='id' wx:for-item="child" url="../project/project?id={{child.id}}">{{child.name}}</navigator>
+              <navigator class='childName' wx:for='{{item.children}}' wx:key='id' wx:for-item="child" url="../project/project?type={{child.name}}&id={{child.id}}">{{child.name}}</navigator>
             </view>
           </view>
         </scroll-view>

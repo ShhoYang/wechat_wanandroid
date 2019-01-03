@@ -5,11 +5,11 @@
     </swiper-item>
   </swiper>
 
-  <scroll-view scroll-y='true'>
-    <navigator wx:for='{{articles}}' wx:key='_id' url='../detail/detail?url={{item.url}}'>
-      <view class='listItem' wx:if='{{item.images!=null}}'>
-        <text>{{item.desc}}</text>
-        <image src='{{item.images[0]}}' mode='widthFix' />
+  <scroll-view class='list'  scroll-y='true'>
+    <navigator wx:for='{{articles}}' wx:key='_id' url='../detail/detail?url={{item.link}}'>
+      <view class='listItem'>
+        <text>{{item.title}}</text>
+        <image src='{{item.envelopePic}}' mode='widthFix' />
       </view>
     </navigator>
   </scroll-view>

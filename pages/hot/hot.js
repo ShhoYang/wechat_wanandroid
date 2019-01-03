@@ -1,8 +1,8 @@
-const app = getApp()
-let page = 1
+const utils = require('../..//utils/refresh')
+const http = getApp().wanandroid
 let bannerData = []
 let listData = []
-let loading = false
+
 Page({
 
   /**
@@ -24,7 +24,7 @@ Page({
    */
   onPullDownRefresh: function() {
     if (bannerData.length == 0) {
-      app.wanandroid.getBanner()
+      http.getBanner()
         .then(result => {
           bannerData = result.data.data;
           this.setData({
@@ -35,11 +35,17 @@ Page({
           console.error(e)
         })
     }
-
-    page = 1
     listData = []
-
-    this.loadPageData()
+    utils.loadPageData(true,
+      page => {
+        return http.getHot(page)
+      },
+      data => {
+        listData = data.data.datas
+        this.setData({
+          articles: listData
+        })
+      })
   },
 
   /**
@@ -49,36 +55,17 @@ Page({
     this.setData({
       isHideLoreMore: false
     })
-    this.loadPageData()
-  },
-
-  loadPageData: function() {
-    if (loading) {
-      return;
-    }
-    loading = true;
-    wx.showNavigationBarLoading()
-    app.ganhuo.getList("Android", page).then(result => {
-      setTimeout(() => {
-        this.loadFinished()
-        listData = listData.concat(result.data.results)
+    utils.loadPageData(
+      false,
+      page => {
+        return http.getHot(page)
+      },
+      data => {
+        listData  = listData.concat(data.data.datas)
         this.setData({
+          isHideLoreMore: true,
           articles: listData
         })
-      }, 1500)
-    })
-  },
-
-  loadFinished: function() {
-    wx.hideNavigationBarLoading()
-    if (page == 1) {
-      wx.stopPullDownRefresh()
-    } else {
-      this.setData({
-        isHideLoreMore: true
       })
-    }
-    page++
-    loading = false
-  }
+  },
 })
