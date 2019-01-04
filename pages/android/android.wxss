@@ -4,7 +4,6 @@
   height: 200rpx;
   width: 25%;
   padding: 0 12rpx;
-
   box-sizing: border-box;
   border-right: 1rpx solid #d9d9d9;
   border-bottom: 1rpx solid #d9d9d9;
@@ -14,8 +13,8 @@
   display: flex;
   color: #000;
   font-size: 10pt;
-   align-items: center;
-  justify-content: center;  
+  align-items: center;
+  justify-content: center;
 }
 
 .parentName {

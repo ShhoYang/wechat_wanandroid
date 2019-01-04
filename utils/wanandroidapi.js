@@ -1,4 +1,4 @@
-const fetch = require('./fetch')
+const fetch = require('./http')
 
 const BASE_URL = 'http://www.wanandroid.com/'
 

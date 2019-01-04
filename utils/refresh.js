@@ -15,7 +15,7 @@ function loadPageData(b, fun, response) {
       loadFinished()
       console.error(result.data)
       response(result.data)
-    }, 1500)
+    }, 1000)
   })
 }
 

@@ -5,11 +5,15 @@
     </swiper-item>
   </swiper>
 
-  <scroll-view class='list'  scroll-y='true'>
+  <scroll-view class='list' scroll-y='true'>
     <navigator wx:for='{{articles}}' wx:key='_id' url='../detail/detail?url={{item.link}}'>
       <view class='listItem'>
         <text>{{item.title}}</text>
         <image src='{{item.envelopePic}}' mode='widthFix' />
+        <view class='bottom'>
+          <view class='time'>作者時間</view>
+          <view class='link'>項目鏈接</view>
+        </view>
       </view>
     </navigator>
   </scroll-view>

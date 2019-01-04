@@ -1,4 +1,4 @@
-swiper{
+swiper {
   height: 50vw;
 }
 
@@ -7,7 +7,7 @@ swiper image {
   height: 100%;
 }
 
-.list{
+.list {
   background-color: #f0f0f0;
 }
 
@@ -33,4 +33,17 @@ swiper image {
   height: auto;
   border-radius: 12rpx;
   border: 1rpx solid lightgray;
+}
+
+.bottom {
+  display: flex;
+}
+
+.time {
+}
+
+.link {
+text-align: right;
+ flex: 1;
+  text-decoration: underline;
 }

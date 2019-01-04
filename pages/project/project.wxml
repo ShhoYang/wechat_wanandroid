@@ -2,7 +2,7 @@
   <scroll-view scroll-y='true'>
     <navigator class='listItem' wx:for='{{articles}}' wx:key='id' url='../detail/detail?url={{item.link}}'>
         <text class='title'>{{item.title}}</text>
-        <text class='time'>{{item.author}}    {{item.niceDate}}</text>
+        <text class='time'>作者:{{item.author}}    時間:{{item.niceDate}}</text>
     </navigator>
   </scroll-view>
   <include src="../common/loadmore.wxml" />
