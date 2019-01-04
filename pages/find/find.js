@@ -115,7 +115,6 @@ Page({
   },
 
   preImage: function(e) {
-    console.error(e)
     wx.previewImage({
       urls: [e.currentTarget.dataset.url]
     })

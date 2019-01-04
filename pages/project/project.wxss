@@ -14,5 +14,5 @@
   white-space: pre;
   margin-top: 6rpx;
   font-size: 10pt;
-  color: #b2b2b2;
+  color: lightgray;
 }

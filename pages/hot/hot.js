@@ -61,11 +61,20 @@ Page({
         return http.getHot(page)
       },
       data => {
-        listData  = listData.concat(data.data.datas)
+        listData = listData.concat(data.data.datas)
         this.setData({
           isHideLoreMore: true,
           articles: listData
         })
       })
   },
+
+  link: function(e) {
+    console.error(e)
+    var v = `../detail/detail?url=${e.currentTarget.dataset.link}`
+    console.error("-------"+ v)
+    wx.navigateTo({
+      url: `../detail/detail?url=${e.currentTarget.dataset.link}`
+    })
+  }
 })

@@ -20,14 +20,14 @@ swiper image {
   box-shadow: 8rpx 8rpx 8rpx lightgray;
 }
 
-.listItem text {
+.title {
   display: block;
   font-size: 12pt;
   text-align: left;
   color: black;
 }
 
-.listItem image {
+.imageBig {
   margin-top: 24rpx;
   width: 50%;
   height: auto;
@@ -37,13 +37,25 @@ swiper image {
 
 .bottom {
   display: flex;
+  margin-top: 4rpx;
+}
+
+.linkIcon{
+  width: 16px;
+  height: 16px;
+  margin: auto;
 }
 
 .time {
+  flex: 1;
+  text-align: left;
+  color: lightgray;
+  font-size: 10pt;
+  white-space: pre;
 }
 
 .link {
-text-align: right;
- flex: 1;
+  color: #586c94;
+  font-size: 10pt;
   text-decoration: underline;
 }

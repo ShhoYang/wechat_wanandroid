@@ -8,11 +8,12 @@
   <scroll-view class='list' scroll-y='true'>
     <navigator wx:for='{{articles}}' wx:key='_id' url='../detail/detail?url={{item.link}}'>
       <view class='listItem'>
-        <text>{{item.title}}</text>
-        <image src='{{item.envelopePic}}' mode='widthFix' />
-        <view class='bottom'>
-          <view class='time'>作者時間</view>
-          <view class='link'>項目鏈接</view>
+        <text class='title'>{{item.title}}</text>
+        <image class='imageBig' src='{{item.envelopePic}}' mode='widthFix' />
+        <view class='bottom' style="flex-direction:row;">
+          <text class='time'>{{item.author}}    {{item.niceDate}}</text>
+          <image class='linkIcon' src='../../images/link.png' mode='scaleToFill' bindtap='link' data-link='{{item.projectLink}}'></image>
+          <text class='link' bindtap='link' data-link='{{item.projectLink}}'>項目鏈接</text>
         </view>
       </view>
     </navigator>
