@@ -1,18 +1,57 @@
-.weui-grid {
+.navBar {
+  width: 100%;
+  height: 50px;
+  display: flex;
+  position: fixed;
+  z-index: 500;
+  background-color: white;
+  border-bottom: 1rpx solid #ccc;
+}
+
+.navBarItem {
+  flex: 1;
+  font-size: 12pt;
+  margin: auto;
+  text-align: center;
+}
+
+.navBarItem.on {
+  color: #1aad19;
+}
+
+.navBarSlider {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 96px;
+  height: 3px;
+  background-color: #1aad19;
+  -webkit-transition: -webkit-transform 0.3s;
+  transition: -webkit-transform 0.3s;
+  transition: transform 0.3s;
+  transition: transform 0.3s, -webkit-transform 0.3s;
+}
+
+.content {
+  padding-top: 50px;
+  box-sizing: border-box;
+  flex: 1;
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.grid {
   position: relative;
   float: left;
   height: 200rpx;
   width: 25%;
   padding: 0 12rpx;
+  color: #000;
+  display: flex;
+  font-size: 10pt;
   box-sizing: border-box;
   border-right: 1rpx solid #d9d9d9;
   border-bottom: 1rpx solid #d9d9d9;
-}
-
-.weui-grid__label {
-  display: flex;
-  color: #000;
-  font-size: 10pt;
   align-items: center;
   justify-content: center;
 }

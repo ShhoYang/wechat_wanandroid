@@ -14,10 +14,14 @@ swiper image {
 .listItem {
   margin: 24rpx;
   padding: 24rpx;
-  background-color: white;
   text-align: center;
+  background-color: white;
   border-radius: 12rpx;
   box-shadow: 8rpx 8rpx 8rpx lightgray;
+}
+
+.listItemActive {
+  background-color: #ececec;
 }
 
 .title {
@@ -37,10 +41,11 @@ swiper image {
 
 .bottom {
   display: flex;
+  flex-direction: row;
   margin-top: 4rpx;
 }
 
-.linkIcon{
+.linkIcon {
   width: 16px;
   height: 16px;
   margin: auto;
@@ -58,4 +63,8 @@ swiper image {
   color: #586c94;
   font-size: 10pt;
   text-decoration: underline;
+}
+
+.linkActive {
+  text-decoration: none;
 }

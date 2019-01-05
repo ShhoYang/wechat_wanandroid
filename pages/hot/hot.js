@@ -9,7 +9,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    isHideLoreMore: true
+    isHideLoreMore: true,
   },
 
   /**
@@ -70,9 +70,6 @@ Page({
   },
 
   link: function(e) {
-    console.error(e)
-    var v = `../detail/detail?url=${e.currentTarget.dataset.link}`
-    console.error("-------"+ v)
     wx.navigateTo({
       url: `../detail/detail?url=${e.currentTarget.dataset.link}`
     })

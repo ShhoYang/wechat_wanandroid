@@ -1056,10 +1056,11 @@ icon {
   display: -webkit-box;
   display: -webkit-flex;
   display: flex;
-  position: absolute;
+  position: fixed;
   z-index: 500;
   top: 0;
   width: 100%;
+  background-color: white;
   border-bottom: 1rpx solid #ccc;
 }
 
@@ -1111,7 +1112,6 @@ icon {
 .weui-tab__panel {
   box-sizing: border-box;
   height: 100%;
-  padding-top: 50px;
   overflow: auto;
   -webkit-overflow-scrolling: touch;
 }

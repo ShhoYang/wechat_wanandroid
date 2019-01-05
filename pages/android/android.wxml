@@ -1,31 +1,21 @@
 <view class="container">
-  <view class="weui-tab">
-    <view class="weui-navbar">
-      <block wx:for="{{tabs}}" wx:key="*this">
-        <view id="{{index}}" class="weui-navbar__item {{activeIndex == index ? 'weui-bar__item_on' : ''}}" bindtap="tabClick">
-          <view class="weui-navbar__title">{{item}}</view>
+  <view class="navBar">
+    <text wx:for="{{tabs}}" wx:key="*this" id="{{index}}" class="navBarItem {{activeIndex == index ? 'on' : ''}}" bindtap="tabClick">{{item}}</text>
+    <view class="navBarSlider" style="left: {{sliderLeft}}px; transform: translateX({{sliderOffset}}px); -webkit-transform: translateX({{sliderOffset}}px);"></view>
+  </view>
+  <view class="content">
+    <scroll-view scroll-y='true' hidden="{{activeIndex != 0}}">
+      <navigator class="grid" wx:for='{{authors}}' wx:key='id' url="../wechat/wechat?author={{item.name}}&id={{item.id}}">
+        {{item.name}}
+      </navigator>
+    </scroll-view>
+    <scroll-view scroll-y='true' hidden="{{activeIndex != 1}}">
+      <view wx:for='{{tree}}' wx:key='id'>
+        <view class="parentName">{{item.name}}</view>
+        <view class='child'>
+          <navigator class='childName' wx:for='{{item.children}}' wx:key='id' wx:for-item="child" url="../project/project?type={{child.name}}&id={{child.id}}">{{child.name}}</navigator>
         </view>
-      </block>
-      <view class="weui-navbar__slider" style="left: {{sliderLeft}}px; transform: translateX({{sliderOffset}}px); -webkit-transform: translateX({{sliderOffset}}px);"></view>
-    </view>
-    <view class="weui-tab__panel">
-      <view class="weui-tab__content" hidden="{{activeIndex != 0}}">
-        <scroll-view scroll-y='true'>
-          <navigator class="weui-grid" wx:for='{{authors}}' wx:key='id' url="../wechat/wechat?author={{item.name}}&id={{item.id}}">
-            <text class="weui-grid__label">{{item.name}}</text>
-          </navigator>
-        </scroll-view>
       </view>
-      <view class="weui-tab__content" hidden="{{activeIndex != 1}}">
-        <scroll-view scroll-y='true'>
-          <view wx:for='{{tree}}' wx:key='id'>
-            <view class="parentName">{{item.name}}</view>
-            <view class='child'>
-              <navigator class='childName' wx:for='{{item.children}}' wx:key='id' wx:for-item="child" url="../project/project?type={{child.name}}&id={{child.id}}">{{child.name}}</navigator>
-            </view>
-          </view>
-        </scroll-view>
-      </view>
-    </view>
+    </scroll-view>
   </view>
 </view>

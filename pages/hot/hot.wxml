@@ -6,17 +6,15 @@
   </swiper>
 
   <scroll-view class='list' scroll-y='true'>
-    <navigator wx:for='{{articles}}' wx:key='_id' url='../detail/detail?url={{item.link}}'>
-      <view class='listItem'>
-        <text class='title'>{{item.title}}</text>
-        <image class='imageBig' src='{{item.envelopePic}}' mode='widthFix' />
-        <view class='bottom' style="flex-direction:row;">
-          <text class='time'>{{item.author}}    {{item.niceDate}}</text>
-          <image class='linkIcon' src='../../images/link.png' mode='scaleToFill' bindtap='link' data-link='{{item.projectLink}}'></image>
-          <text class='link' bindtap='link' data-link='{{item.projectLink}}'>項目鏈接</text>
-        </view>
+    <view class='listItem' hover-class='listItemActive' wx:for='{{articles}}' wx:key='_id' bindtap='link' data-link='{{item.link}}'>
+      <text class='title'>{{item.title}}</text>
+      <image class='imageBig' src='{{item.envelopePic}}' mode='widthFix' />
+      <view class='bottom'>
+        <text class='time'>{{item.author}}    {{item.niceDate}}</text>
+        <image class='linkIcon' src='../../images/link.png' mode='scaleToFill' catchtap='link' data-link='{{item.projectLink}}'></image>
+        <view class='link' hover-class='linkActive' catchtap='link' data-link='{{item.projectLink}}'>項目鏈接</view>
       </view>
-    </navigator>
+    </view>
   </scroll-view>
 
   <include src="../common/loadmore.wxml" />
