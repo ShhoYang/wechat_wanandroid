@@ -759,14 +759,14 @@ icon {
 }
 
 .weui-grid__label {
- width: 100%;
- height: 100%;
   margin-top: 5px;
   display: block;
   text-align: center;
   color: #000;
   font-size: 14px;
-  
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
 }
 
 .weui-loading {
@@ -1056,11 +1056,10 @@ icon {
   display: -webkit-box;
   display: -webkit-flex;
   display: flex;
-  position: fixed;
+  position: absolute;
   z-index: 500;
   top: 0;
   width: 100%;
-  background-color: white;
   border-bottom: 1rpx solid #ccc;
 }
 
@@ -1084,7 +1083,7 @@ icon {
   content: " ";
   left: 0;
   bottom: 0;
-  width: 96px;
+  width: 6em;
   height: 3px;
   background-color: #1aad19;
   -webkit-transition: -webkit-transform 0.3s;
@@ -1112,6 +1111,7 @@ icon {
 .weui-tab__panel {
   box-sizing: border-box;
   height: 100%;
+  padding-top: 50px;
   overflow: auto;
   -webkit-overflow-scrolling: touch;
 }

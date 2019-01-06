@@ -1,9 +1,12 @@
-module.exports = function(url) {
+module.exports = function(method, url, data) {
   return new Promise((onResponse, onFailed) => {
     wx.request({
+      method: method,
       url: url,
+      data: data,
       header: {
-        'Constent-Type': 'json'
+        // 'content-type': 'application/json'
+        'content-type': 'application/x-www-form-urlencoded'
       },
       success: onResponse,
       fail: onFailed

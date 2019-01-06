@@ -1,8 +1,13 @@
-const fetch = require('./http')
+const api = require('./http')
+
+const BASE_URL = 'https://gank.io/api/'
+
+const P = "POST"
+
+const G = 'GET'
 
 function getList(type, page) {
-  const url = `https://gank.io/api/data/${type}/10/${page}`
-  return fetch(url)
+  return api(G, `${BASE_URL}data/${type}/10/${page}`)
 }
 
 module.exports = {

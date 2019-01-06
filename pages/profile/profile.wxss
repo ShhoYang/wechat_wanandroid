@@ -1,0 +1,19 @@
+.userInfo {
+  display: flex;
+  padding: 32rpx;
+  background-color: lightgrey;
+  margin-bottom: 48rpx;
+}
+
+.avatar {
+  width: 100rpx;
+  height: 100rpx;
+}
+
+.username {
+  margin: auto 16rpx;
+}
+
+.goLogin{
+  width: 90vw;
+}

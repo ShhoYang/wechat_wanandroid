@@ -54,9 +54,8 @@ swiper image {
 .time {
   flex: 1;
   text-align: left;
-  color: lightgray;
+  color: #b2b2b2;
   font-size: 10pt;
-  white-space: pre;
 }
 
 .link {

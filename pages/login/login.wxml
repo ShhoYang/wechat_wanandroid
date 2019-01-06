@@ -1,0 +1,16 @@
+<view class='container'>
+  <form bindsubmit='login'>
+    <view class='formItem' style=''>
+      <text class='lable'>用戶名:</text>
+      <input name='username' placeholder='請輸入用戶名' bindfocus='usernameFocus' bindblur='usernameBlur' bindinput='usernameInput' />
+    </view>
+    <view class="line {{usernameFocus?'on':''}}"></view>
+    <view class='formItem'>
+      <text class='lable' space='emsp'>密 碼:</text>
+      <input name='password' placeholder='請輸入密碼' password='true'
+      bindfocus='passwordFocus' bindblur='passwordBlur' bindinput='passwordInput' />
+    </view>
+    <view class="line {{passwordFocus?'on':''}}"></view>
+    <button type='primary' disabled='{{buttonDisabled}}' form-type='submit'>登錄</button>
+  </form>
+</view>

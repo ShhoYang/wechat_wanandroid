@@ -1,36 +1,48 @@
-const fetch = require('./http')
+const api = require('./http')
 
 const BASE_URL = 'http://www.wanandroid.com/'
 
+const P = "POST"
+
+const G = 'GET'
+
+function login(username, password) {
+  return api(P, `${BASE_URL}user/login`, {
+    username: username,
+    password: password
+  })
+}
+
 function getBanner() {
-  return fetch(`${BASE_URL}banner/json`)
+  return api(G, `${BASE_URL}banner/json`)
 }
 
 function getHot(page) {
-  return fetch(`${ BASE_URL }article/listproject/${page-1}/json`)
+  return api(G, `${BASE_URL}article/listproject/${page-1}/json`)
 }
 
 function getAuthors() {
-  return fetch(`${BASE_URL}wxarticle/chapters/json`)
+  return api(G, `${BASE_URL}wxarticle/chapters/json`)
 }
 
 function getWechatArticles(id, page) {
-  return fetch(`${BASE_URL}wxarticle/list/${id}/${page}/json`)
-}
-
-function getProjectArticles(id, page) {
-  return fetch(`${BASE_URL}article/list/${page-1}/json?cid=${id}`)
+  return api(G, `${BASE_URL}wxarticle/list/${id}/${page}/json`)
 }
 
 function getTree() {
-  return fetch(`${BASE_URL}tree/json`)
+  return api(G, `${BASE_URL}tree/json`)
+}
+
+function getProjectArticles(id, page) {
+  return api(G, `${BASE_URL}article/list/${page - 1}/json?cid=${id}`)
 }
 
 module.exports = {
+  login,
   getBanner,
   getHot,
   getAuthors,
-  getTree,
   getWechatArticles,
+  getTree,
   getProjectArticles
 }

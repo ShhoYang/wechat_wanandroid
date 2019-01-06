@@ -1,0 +1,7 @@
+<view class='container'>
+  <view class='userInfo'>
+    <image class='avatar' src='../../images/avatar.png'></image>
+    <text class='username'>{{username}}</text>
+  </view>
+  <button class='goLogin' type='primary' hidden='{{isLogin}}' bindtap='goLogin'>去登錄</button>
+</view>

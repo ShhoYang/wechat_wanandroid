@@ -3,9 +3,11 @@
     "pages/hot/hot",
     "pages/android/android",
     "pages/find/find",
+    "pages/profile/profile",
     "pages/wechat/wechat",
     "pages/project/project",
-    "pages/detail/detail"
+    "pages/detail/detail",
+    "pages/login/login"
   ],
   "window": {
     "backgroundColor": "#f8f8f8",
@@ -16,8 +18,8 @@
     "enablePullDownRefresh": false
   },
   "tabBar": {
-    "color": "#8a8a8a",
-    "selectedColor": "#78c257",
+    "color": "#000000",
+    "selectedColor": "#1aad19",
     "list": [
       {
         "pagePath": "pages/hot/hot",
@@ -36,6 +38,12 @@
         "text": "妹子",
         "iconPath": "images/find.png",
         "selectedIconPath": "images/find-selected.png"
+      },
+      {
+        "pagePath": "pages/profile/profile",
+        "text": "我的",
+        "iconPath": "images/profile.png",
+        "selectedIconPath": "images/profile-selected.png"
       }
     ]
   },
