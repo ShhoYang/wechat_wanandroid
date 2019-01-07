@@ -3,5 +3,8 @@
     <image class='avatar' src='../../images/avatar.png'></image>
     <text class='username'>{{username}}</text>
   </view>
+  
   <button class='goLogin' type='primary' hidden='{{isLogin}}' bindtap='goLogin'>去登錄</button>
+
+   <button class='logout' type='primary' hidden='{{!isLogin}}' bindtap='logout'>退出登錄</button>
 </view>

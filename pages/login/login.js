@@ -64,8 +64,7 @@ Page({
       .then(result => {
         var ret = result.data
         if (ret.errorCode == 0) {
-          app.isLogin = true
-          app.username = ret.data.username
+          app.logged(username)
           wx.showToast({
             title: '登錄成功',
             icon: 'success'

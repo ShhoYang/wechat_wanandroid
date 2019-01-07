@@ -1,7 +1,7 @@
 .userInfo {
   display: flex;
   padding: 32rpx;
-  background-color: lightgrey;
+  background-color: #f8f8f8;
   margin-bottom: 48rpx;
 }
 
@@ -14,6 +14,6 @@
   margin: auto 16rpx;
 }
 
-.goLogin{
+button{
   width: 90vw;
 }
