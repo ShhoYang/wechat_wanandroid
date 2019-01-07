@@ -22,5 +22,19 @@ Page({
     wx.navigateTo({
       url: '../login/login',
     })
+  },
+
+  logout: function() {
+    wx.showLoading({
+      title: '正在退出登錄...',
+    })
+    app.logout()
+    setTimeout(() => {
+      wx.hideLoading()
+      this.setData({
+        username: '未登錄',
+        isLogin: false
+      })
+    }, 2000)
   }
 })

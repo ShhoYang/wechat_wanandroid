@@ -7,7 +7,8 @@
     "pages/wechat/wechat",
     "pages/project/project",
     "pages/detail/detail",
-    "pages/login/login"
+    "pages/login/login",
+    "components/my-input/my-input"
   ],
   "window": {
     "backgroundColor": "#f8f8f8",

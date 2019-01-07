@@ -1,0 +1,31 @@
+.content{
+  display: flex;
+}
+
+.lable {
+  font-size: 10pt;
+  margin: auto 16rpx;
+}
+
+input {
+  flex: 1;
+  font-size: 10pt;
+  margin: auto 16rpx;
+}
+
+image {
+  width: 28rpx;
+  height: 28rpx;
+  margin: auto 16rpx;
+}
+
+.line {
+  height: 1px;
+  background-color: lightgray;
+  margin-top: 16rpx;
+  margin-bottom: 48rpx;
+}
+
+.line.on {
+  background-color: #1aad19;
+}

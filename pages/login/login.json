@@ -1,3 +1,6 @@
 {
-  "navigationBarTitleText": "登錄"
+  "navigationBarTitleText": "登錄",
+  "usingComponents": {
+    "my-input": "../../components/my-input/my-input"
+  }
 }

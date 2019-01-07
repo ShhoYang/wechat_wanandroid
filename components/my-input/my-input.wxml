@@ -1,0 +1,9 @@
+<view>
+  <view class='content'>
+    <text class='lable' space='emsp'>{{lable}}</text>
+    <input placeholder='{{placeholder}}' password='{{password}}' focus='{{focus}}' value='{{content}}' bindfocus='focus' bindblur='blur' bindinput='input' />
+    <image src='../../images/delete.png' hidden='{{clearHidden}}' bindtap='clear' />
+  </view>
+
+  <view class="line {{lineFocus?'on':''}}"></view>
+</view>
