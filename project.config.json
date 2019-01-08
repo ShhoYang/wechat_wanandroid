@@ -14,7 +14,7 @@
   "compileType": "miniprogram",
   "libVersion": "2.4.3",
   "appid": "wxd5feff7bf1bfa354",
-  "projectname": "ganhuo",
+  "projectname": "玩Android",
   "debugOptions": {
     "hidedInDevtools": []
   },
@@ -36,6 +36,4 @@
       "list": []
     }
   }
-
-  
 }

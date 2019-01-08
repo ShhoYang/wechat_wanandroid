@@ -1,8 +1,7 @@
 <view class='container'>
   <form bindsubmit='login'>
-    <my-input name='username' class='username' lable='用戶名' placeholder='請輸入用戶名' focus='true' bindchange='usernameInput' />
+    <my-input name='username' class='username' lable='用戶名' placeholder='請輸入用戶名'  bindchange='usernameInput' />
     <my-input name='password' class='password' lable='密 碼' placeholder='請輸入密碼' password='true' bindchange='passwordInput'/>
-
     <button type='primary' disabled='{{buttonDisabled}}' form-type='submit'>登錄</button>
   </form>
 </view>

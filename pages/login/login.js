@@ -3,11 +3,10 @@ const API = getApp().wanandroid
 
 var username = ''
 var password = ''
+
 Page({
 
   data: {
-    usernameFocus: true,
-    passwordFocus: false,
     buttonDisabled: true
   },
 
@@ -19,8 +18,7 @@ Page({
    * 用户名输入监听
    */
   usernameInput: function(e) {
-    console.error('==========' + e.detail.value)
-    //username = e.detail.username
+    username = e.detail
     this.buttonDisabled()
   },
 
@@ -28,8 +26,7 @@ Page({
    * 密码输入监听
    */
   passwordInput: function(e) {
-    console.error('==========' + e)
-    //password = e.detail.password
+    password = e.detail
     this.buttonDisabled()
   },
 
@@ -37,17 +34,17 @@ Page({
    * 按钮是否可以点击
    */
   buttonDisabled: function() {
-    // var disable = username.length == 0 || password.length < 6
-    // this.setData({
-    //   buttonDisabled: disable
-    // })
+    var disable = username.length == 0 || password.length < 6
+    this.setData({
+      buttonDisabled: disable
+    })
   },
 
   /**
    * 登录
    */
   login: function(e) {
-    console.error('==========' + e.detail)
+    console.error(e)
     wx.showToast({
       title: '正在登錄...',
       icon: 'loading',

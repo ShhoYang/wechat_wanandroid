@@ -41,8 +41,3 @@ App({
     })
   }
 })
-
-// module.exports = {
-//   logged,
-//   logout
-// }

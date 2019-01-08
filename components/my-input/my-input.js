@@ -14,11 +14,6 @@ Component({
       value: ''
     },
 
-    type: {
-      type: String,
-      value: 'text'
-    },
-
     password: {
       type: Boolean,
       value: false
@@ -27,11 +22,6 @@ Component({
     placeholder: {
       type: String,
       value: ''
-    },
-
-    focus: {
-      type: Boolean,
-      value: false
     }
   },
 
@@ -39,8 +29,8 @@ Component({
    * 组件的初始数据
    */
   data: {
-    value: '',
-    lineFocus: false,
+    value:'',
+    focus: false,
     clearHidden: true
   },
 
@@ -52,14 +42,14 @@ Component({
       var value = e.detail.value
       this.setData({
         value: value,
-        lineFocus: true,
+        focus: true,
         clearHidden: value.length == 0
       })
     },
 
     blur(e) {
       this.setData({
-        lineFocus: false,
+        focus: false,
         clearHidden: true
       })
     },
@@ -68,15 +58,14 @@ Component({
       var value = e.detail.value
       this.setData({
         value: value,
-        clearHidden: value.length == 0,
+        clearHidden: value.length == 0
       })
-      this.triggerEvent('change', e)
+      this.triggerEvent('change', e.detail.value)
     },
 
     clear() {
       this.setData({
         content: '',
-        value: '',
         focus: true,
         clearHidden: true
       })

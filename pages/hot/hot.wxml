@@ -16,6 +16,5 @@
       </view>
     </view>
   </scroll-view>
-
   <include src="../../style/loadmore.wxml" />
 </view>
