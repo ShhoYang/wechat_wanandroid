@@ -1,0 +1,20 @@
+<view class='container'>
+
+<image class='qr' src='../../images/apk_qr.png' mode='scaleToFill'/>
+<text class='lable'>小程序項目鏈接</text>
+<text class='link'>https://github.com/haoshiy/wechat_wanandroid</text>
+
+<text class='lable'>Android項目鏈接</text>
+<text class='link'>https://github.com/haoshiy/kotlin_wanandroid</text>
+
+<text class='lable'>Apk下载地址</text>
+<text class='link'>https://fir.im/wanAndroid</text>
+
+<text class='lable'>聯繫方式</text>
+<text class='link'>haoyshi@163.com</text>
+
+<text class='lable'>Thanks</text>
+<text class='link'>鸿洋-玩Android开发Api</text>
+<text class='link'>干货集中营开放Api</text>
+
+</view>

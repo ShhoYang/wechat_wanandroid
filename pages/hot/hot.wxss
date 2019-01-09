@@ -41,21 +41,20 @@ swiper image {
 
 .bottom {
   display: flex;
-  flex-direction: row;
-  margin-top: 4rpx;
+  margin-top:8rpx;
+  align-items: center;
 }
 
 .linkIcon {
-  width: 16px;
-  height: 16px;
-  margin: auto;
+  width: 32rpx;
+  height: 32rpx;
 }
 
 .time {
   flex: 1;
-  text-align: left;
   color: #b2b2b2;
   font-size: 10pt;
+  text-align: left;
 }
 
 .link {

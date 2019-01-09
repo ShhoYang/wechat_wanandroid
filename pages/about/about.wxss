@@ -1,0 +1,27 @@
+page{
+  height: 100vh;
+}
+.container {
+  padding: 48rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.qr{
+  margin: 0 auto;
+  display: inline-block;
+  width: 40vw;
+  height: 40vw;
+}
+
+.lable{
+  font-size: 10pt;
+  margin-top: 32rpx;
+}
+
+.link{
+  font-size: 10pt;
+  color: #586c94;
+  word-wrap: break-word;
+}

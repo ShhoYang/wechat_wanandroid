@@ -3,12 +3,15 @@
     "pages/hot/hot",
     "pages/android/android",
     "pages/find/find",
-    "pages/profile/profile",
+    "pages/my/my",
     "pages/wechat/wechat",
     "pages/project/project",
     "pages/detail/detail",
     "pages/login/login",
-    "components/my-input/my-input"
+    "pages/profile/profile",
+    "pages/fav/fav",
+    "pages/about/about"
+    
   ],
   "window": {
     "backgroundColor": "#f8f8f8",
@@ -24,27 +27,27 @@
     "list": [
       {
         "pagePath": "pages/hot/hot",
-        "text": "热门",
+        "text": "熱門",
         "iconPath": "images/hot.png",
         "selectedIconPath": "images/hot-selected.png"
       },
       {
         "pagePath": "pages/android/android",
-        "text": "干货",
+        "text": "乾貨",
         "iconPath": "images/android.png",
         "selectedIconPath": "images/android-selected.png"
       },
       {
         "pagePath": "pages/find/find",
-        "text": "妹子",
+        "text": "發現",
         "iconPath": "images/find.png",
         "selectedIconPath": "images/find-selected.png"
       },
       {
-        "pagePath": "pages/profile/profile",
+        "pagePath": "pages/my/my",
         "text": "我的",
-        "iconPath": "images/profile.png",
-        "selectedIconPath": "images/profile-selected.png"
+        "iconPath": "images/my.png",
+        "selectedIconPath": "images/my-selected.png"
       }
     ]
   },

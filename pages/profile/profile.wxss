@@ -1,48 +1,46 @@
-.userInfo {
+.cell {
+  position: relative;
   display: flex;
+  align-items: center;
   padding: 32rpx;
-  background-color: #f8f8f8;
+}
+
+.cell:after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  left: 32rpx;
+  height: 1px;
+  background-color: lightgrey;
+}
+
+.left {
+  flex: 1;
+}
+
+.right {
+  color: gray;
+  font-size: 10pt;
 }
 
 .avatar {
+  overflow: hidden;
   width: 100rpx;
   height: 100rpx;
+  border-radius: 12rpx;
 }
 
-.username {
-  margin: auto 16rpx;
+.line {
+  width: 100%;
+  height: 1px;
+  background-color: lightgrey;
 }
 
-.menuItem {
-  display: flex;
-  padding: 24rpx 32rpx;
-  border-bottom: 1px solid lightgray;
-  align-items: center;
+.line.bottom {
+  margin-top: -1px;
 }
 
-.menuIcon {
-  width: 48rpx;
-  height: 48rpx;
-}
-
-.menuText {
-  flex: 1;
-  font-size: 12pt;
-  margin-left: 20rpx;
-}
-
-.menuArrow{
-  height: 12rpx;
-  width: 12rpx;
-  border-width: 2px 2px 0 0;
-  border-color: #c8c8cd;
-  border-style: solid;
-  -webkit-transform: matrix(0.71, 0.71, -.71, 0.71, 0, 0);
-  transform: matrix(0.71, 0.71, -.71, 0.71, 0, 0);
-}
-
-button {
-  position: relative;
-  top: 48rpx;
-  width: 90vw;
+#city {
+  margin-left: 24rpx;
 }

@@ -1,0 +1,21 @@
+<view class='container'>
+  <navigator class='userInfo' url='../profile/profile'>
+    <open-data class='avatar' type="userAvatarUrl"/>
+    <text class='username'>{{username}}</text>
+    <view class='menuArrow'></view>
+  </navigator>
+
+  <view class='line'/>
+  <view class='menu'>
+    <navigator wx:for='{{menu}}' wx:key="{{item.text}}" class='menuItem' url='{{item.url}}'>
+      <image class='menuIcon' src='{{item.icon}}' />
+      <text class='menuText'>{{item.text}}</text>
+      <view class='menuArrow'></view>
+    </navigator>
+  </view>
+  <view class='line'/>
+
+  <button class='goLogin' type='primary' hidden='{{isLogin}}' bindtap='goLogin'>去登錄</button>
+
+  <button class='logout' type='primary' hidden='{{!isLogin}}' bindtap='logout'>退出登錄</button>
+</view>

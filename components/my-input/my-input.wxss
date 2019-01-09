@@ -2,6 +2,7 @@
   display: flex;
   padding-bottom: 4rpx;
   border-bottom: 1px solid lightgray;
+  align-items: center;
 }
 
 .my-input.on {
@@ -10,17 +11,17 @@
 
 .my-input-lable {
   font-size: 10pt;
-  margin: auto 16rpx;
+  margin: 0 16rpx;
 }
 
 .my-input-input {
   flex: 1;
   font-size: 10pt;
-  margin: auto 16rpx;
+  margin: 0 16rpx;
 }
 
 .my-input-clear {
   width: 28rpx;
   height: 28rpx;
-  margin: auto 16rpx;
+  margin: 0 16rpx;
 }

@@ -1,18 +1,27 @@
 <view class='container'>
-  <view class='userInfo'>
-    <image class='avatar' src='../../images/avatar.png'></image>
-    <text class='username'>{{username}}</text>
+
+  <view class='cell'>
+    <text class='left'>大頭貼</text>
+    <open-data class='avatar' type="userAvatarUrl" />
+  </view>
+  <view class='cell'>
+    <text class='left'>名字</text>
+    <open-data class='right' type="userNickName" />
+  </view>
+  <view class='cell' hidden='{{hiddenNickname}}'>
+    <text class='left'>昵稱</text>
+    <text class='right' >{{nickname}}</text>
+  </view>
+  <view class='cell'>
+    <text class='left'>性別</text>
+    <open-data class='right' type="userGender" lang='zh_TW' />
   </view>
 
-  <view wx:for='{{menu}}'>
-    <navigator class='menuItem' url='{{item.url}}'>
-      <image class='menuIcon' src='{{item.icon}}' />
-      <text class='menuText'>{{item.text}}</text>
-      <view class='menuArrow'></view>
-    </navigator>
+  <view class='cell'>
+    <text class='left'>地區</text>
+    <open-data class='right' type="userProvince" lang='zh_TW' />
+    <open-data id='city' class='right' type="userCity" lang='zh_TW' />
   </view>
 
-  <button class='goLogin' type='primary' hidden='{{isLogin}}' bindtap='goLogin'>去登錄</button>
-
-  <button class='logout' type='primary' hidden='{{!isLogin}}' bindtap='logout'>退出登錄</button>
+  <view class='line bottom' />
 </view>
