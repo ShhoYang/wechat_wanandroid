@@ -13,7 +13,6 @@ function loadPageData(b, fun, response) {
   fun(page).then(result => {
     setTimeout(() => {
       loadFinished()
-      console.error(result.data)
       response(result.data)
     }, 1000)
   })

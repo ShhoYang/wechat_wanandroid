@@ -4,7 +4,9 @@ Page({
 
   data: {
     username: app.username,
-    isLogin: app.isLogin
+    isLogin: app.isLogin,
+    menu:[{icon:'../../images/hot.png'
+    ,text:'我的收藏'}]
   },
 
   onLoad: function(options) {

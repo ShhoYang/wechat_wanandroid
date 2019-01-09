@@ -29,7 +29,7 @@ Component({
    * 组件的初始数据
    */
   data: {
-    value:'',
+    value: '',
     focus: false,
     clearHidden: true
   },

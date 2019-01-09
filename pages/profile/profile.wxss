@@ -2,7 +2,6 @@
   display: flex;
   padding: 32rpx;
   background-color: #f8f8f8;
-  margin-bottom: 48rpx;
 }
 
 .avatar {
@@ -14,6 +13,36 @@
   margin: auto 16rpx;
 }
 
-button{
+.menuItem {
+  display: flex;
+  padding: 24rpx 32rpx;
+  border-bottom: 1px solid lightgray;
+  align-items: center;
+}
+
+.menuIcon {
+  width: 48rpx;
+  height: 48rpx;
+}
+
+.menuText {
+  flex: 1;
+  font-size: 12pt;
+  margin-left: 20rpx;
+}
+
+.menuArrow{
+  height: 12rpx;
+  width: 12rpx;
+  border-width: 2px 2px 0 0;
+  border-color: #c8c8cd;
+  border-style: solid;
+  -webkit-transform: matrix(0.71, 0.71, -.71, 0.71, 0, 0);
+  transform: matrix(0.71, 0.71, -.71, 0.71, 0, 0);
+}
+
+button {
+  position: relative;
+  top: 48rpx;
   width: 90vw;
 }

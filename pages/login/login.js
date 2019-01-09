@@ -7,7 +7,7 @@ var password = ''
 Page({
 
   data: {
-    buttonDisabled: true
+    buttonDisabled: false
   },
 
   onLoad: function(options) {
