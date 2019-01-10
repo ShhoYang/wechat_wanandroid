@@ -6,7 +6,8 @@ module.exports = function(method, url, data) {
       data: data,
       header: {
         // 'content-type': 'application/json'
-        'content-type': 'application/x-www-form-urlencoded'
+        'content-type': 'application/x-www-form-urlencoded',
+        'cookie':getApp().cookie
       },
       success: onResponse,
       fail: onFailed

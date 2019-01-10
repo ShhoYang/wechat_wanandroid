@@ -1,6 +1,6 @@
 <view class='container'>
 
-<image class='qr' src='../../images/apk_qr.png' mode='scaleToFill'/>
+<image class='qr' src='http://haoshi.co/apk_qr.png' mode='scaleToFill' bindtap='preview'/>
 <text class='lable'>小程序項目鏈接</text>
 <text class='link'>https://github.com/haoshiy/wechat_wanandroid</text>
 

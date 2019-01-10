@@ -13,6 +13,11 @@ function login(username, password) {
   })
 }
 
+
+function getFav(page) {
+  return api(G, `${BASE_URL}lg/collect/list/${page-1}/json`)
+}
+
 function getBanner() {
   return api(G, `${BASE_URL}banner/json`)
 }
@@ -39,6 +44,7 @@ function getProjectArticles(id, page) {
 
 module.exports = {
   login,
+  getFav,
   getBanner,
   getHot,
   getAuthors,

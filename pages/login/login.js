@@ -44,7 +44,6 @@ Page({
    * 登录
    */
   login: function(e) {
-    console.error(e)
     wx.showToast({
       title: '正在登錄...',
       icon: 'loading',
@@ -55,7 +54,12 @@ Page({
       .then(result => {
         var ret = result.data
         if (ret.errorCode == 0) {
-          app.logged(username)
+          var cookie = result.header["Set-Cookie"]
+
+          console.error('cookie', cookie)
+
+          console.error('cookie-------')
+          app.logged(username, result.header["Set-Cookie"])
           wx.showToast({
             title: '登錄成功',
             icon: 'success'
