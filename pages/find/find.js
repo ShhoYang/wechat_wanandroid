@@ -1,4 +1,4 @@
-const REFRESH = require('../..//utils/refresh')
+const LOAD_LIST_PROXY = require('../..//utils/loadListProxy2')
 const API = getApp().ganhuo
 const holderUrl = 'https://ws1.sinaimg.cn/large/0065oQSqly1fymj13tnjmj30r60zf79k.jpg'
 let leftColumnHeight = 0
@@ -7,16 +7,21 @@ let imageWidth = 0
 let imageCount = 0
 
 Page({
-  
   data: {
     scrollHeight: 0,
     images: [],
     columnleft: [],
-    columnright: [],
-    isHideLoreMore: true
+    columnright: []
   },
 
   onLoad: function(options) {
+    LOAD_LIST_PROXY.setPage(this, (currentPageData, totalData) => {
+      console.error(currentPageData)
+      imageCount = currentPageData.length
+      this.setData({
+        images: currentPageData
+      })
+    })
     wx.getSystemInfo({
       success: (res) => {
         let scrollHeight = res.windowHeight
@@ -35,36 +40,16 @@ Page({
     this.data.columnright = []
     leftColumnHeight = 0
     rightColumnHeight = 0
-    REFRESH.loadPageData(
-      true,
+    LOAD_LIST_PROXY.refresh(
       page => {
         return API.getList("福利", page)
-      },
-      data => {
-        let images = data.results
-        imageCount = images.length
-        this.setData({
-          images: images
-        })
       })
   },
 
   onReachBottom: function() {
-    this.setData({
-      isHideLoreMore: false
-    })
-    REFRESH.loadPageData(
-      false,
+    LOAD_LIST_PROXY.loadMore(
       page => {
         return API.getList("福利", page)
-      },
-      data => {
-        let images = data.results
-        imageCount = images.length
-        this.setData({
-          isHideLoreMore: true,
-          images: images
-        })
       })
   },
 

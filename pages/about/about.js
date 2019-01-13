@@ -10,7 +10,7 @@ Page({
 
   preview:function(e){
     wx.previewImage({
-      urls: ['http://haoshi.co/apk_qr.png']
+      urls: ['http://haoshi.co/images/qr.png']
     })
   }
 })

@@ -6,7 +6,7 @@
   </swiper>
 
   <scroll-view class='list' scroll-y='true'>
-    <view class='listItem' hover-class='listItemActive' wx:for='{{articles}}' wx:key='_id' bindtap='link' data-link='{{item.link}}'>
+    <view class='listItem' hover-class='listItemActive' wx:for='{{list}}' wx:key='_id' bindtap='link' data-link='{{item.link}}'>
       <text class='title'>{{item.title}}</text>
       <image class='imageBig' src='{{item.envelopePic}}' mode='widthFix' />
       <view class='bottom'>
@@ -16,5 +16,5 @@
       </view>
     </view>
   </scroll-view>
-  <include src="../../style/loadmore.wxml" />
+  <load-more status='{{loadMoreStatus}}' />
 </view>

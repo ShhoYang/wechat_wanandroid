@@ -16,5 +16,5 @@
       </view>
     </view>
   </scroll-view>
-  <include src="../../style/loadmore.wxml" />
+  <load-more status='{{loadMoreStatus}}' />
 </view>

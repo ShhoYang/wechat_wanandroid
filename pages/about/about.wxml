@@ -1,6 +1,10 @@
 <view class='container'>
 
-<image class='qr' src='http://haoshi.co/apk_qr.png' mode='scaleToFill' bindtap='preview'/>
+<image class='qr' src='http://haoshi.co/images/qr.png' mode='scaleToFill' bindtap='preview'/>
+
+<text class='lable'>個人主頁</text>
+<text class='link'>https://haoshi.co</text>
+
 <text class='lable'>小程序項目鏈接</text>
 <text class='link'>https://github.com/haoshiy/wechat_wanandroid</text>
 
@@ -8,10 +12,7 @@
 <text class='link'>https://github.com/haoshiy/kotlin_wanandroid</text>
 
 <text class='lable'>Apk下载地址</text>
-<text class='link'>https://fir.im/wanAndroid</text>
-
-<text class='lable'>聯繫方式</text>
-<text class='link'>haoyshi@163.com</text>
+<text class='link'>https://haoshi.co/wanandroid.apk</text>
 
 <text class='lable'>Thanks</text>
 <text class='link'>鸿洋-玩Android开发Api</text>

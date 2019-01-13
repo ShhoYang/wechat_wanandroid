@@ -13,7 +13,6 @@ function login(username, password) {
   })
 }
 
-
 function getFav(page) {
   return api(G, `${BASE_URL}lg/collect/list/${page-1}/json`)
 }

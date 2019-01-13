@@ -1,15 +1,15 @@
-const REFRESH = require('../..//utils/refresh')
+const LOAD_LIST_PROXY = require('../..//utils/loadListProxy')
 const API = getApp().wanandroid
 let id = 0
-let listData = []
 Page({
-  
+
   data: {
-    isHideLoreMore: true
+    list:[]
   },
 
   onLoad: function(options) {
     id = options.id
+    LOAD_LIST_PROXY.setPage(this)
     wx.setNavigationBarTitle({
       title: options.author
     })
@@ -17,35 +17,26 @@ Page({
   },
 
   onPullDownRefresh: function() {
-    listData = []
-    REFRESH.loadPageData(
-      true,
+    LOAD_LIST_PROXY.refresh(
       page => {
         return API.getWechatArticles(id, page)
-      },
-      data => {
-        listData = data.data.datas
-        this.setData({
-          articles: listData
-        })
       })
   },
 
   onReachBottom: function() {
-    this.setData({
-      isHideLoreMore: false
-    })
-    REFRESH.loadPageData(
-      false,
+    LOAD_LIST_PROXY.loadMore(
       page => {
         return API.getWechatArticles(id, page)
-      },
-      data => {
-        listData = listData.concat(data.data.datas)
-        this.setData({
-          isHideLoreMore: true,
-          articles: listData
-        })
       })
+  },
+
+  fav: function(e) {
+    var index = e.currentTarget.dataset.index
+    var itemCollect = 'list['+ index+'].collect'
+    var temp = this.data.list[index].collect
+    this.data.list[index].collect = !temp
+    this.setData({
+      [itemCollect]: !temp
+    })
   }
 })

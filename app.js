@@ -23,7 +23,6 @@ App({
       wx.getStorage({
         key: KEY_COOKIE,
         success: (res) =>{
-          console.error('-----', res.data.loginUserName)
           if (res.errMsg == 'getStorage:ok') {
             this.cookie = res.data
           }

@@ -1,46 +1,25 @@
-const REFRESH = require('../..//utils/refresh')
+const LOAD_LIST_PROXY = require('../..//utils/loadListProxy')
 const API = getApp().wanandroid
-let listData = []
 Page({
 
-  data: {
-    isHideLoreMore: true
-  },
+  data: {},
 
   onLoad: function(options) {
+    LOAD_LIST_PROXY.setPage(this)
     wx.startPullDownRefresh()
   },
 
   onPullDownRefresh: function() {
-    listData = []
-    REFRESH.loadPageData(
-      true,
+    LOAD_LIST_PROXY.refresh(
       page => {
         return API.getFav(page)
-      },
-      data => {
-        listData = data.data.datas
-        this.setData({
-          articles: listData
-        })
       })
   },
 
   onReachBottom: function() {
-    this.setData({
-      isHideLoreMore: false
-    })
-    REFRESH.loadPageData(
-      false,
+    LOAD_LIST_PROXY.loadMore(
       page => {
         return API.getFav(page)
-      },
-      data => {
-        listData = listData.concat(data.data.datas)
-        this.setData({
-          isHideLoreMore: true,
-          articles: listData
-        })
       })
   }
 })

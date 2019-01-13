@@ -1,9 +1,12 @@
 <view class='container'>
   <scroll-view scroll-y='true'>
-    <navigator class='listItem' wx:for='{{articles}}' wx:key='id' url='../detail/detail?url={{item.link}}'>
+    <navigator class='listItem' wx:for='{{list}}' wx:key='id' url='../detail/detail?url={{item.link}}'>
       <text class='title'>{{item.title}}</text>
-      <text class='time' space='nbsp'>作者:{{item.author}}    時間:{{item.niceDate}}</text>
+      <view class='bottom'>
+        <text class='time' space='nbsp'>作者:{{item.author}}    時間:{{item.niceDate}}</text>
+       <image class='fav' src="{{item.collect?'../../images/ic_fav_1.png':'../../images/ic_fav_0.png'}}" />
+      </view>
     </navigator>
   </scroll-view>
-  <include src="../../style/loadmore.wxml" />
+  <load-more status='{{loadMoreStatus}}' />
 </view>

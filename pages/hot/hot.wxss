@@ -21,7 +21,8 @@ swiper image {
 }
 
 .listItemActive {
-  background-color: #ececec;
+  background-color: rgba(0, 0, 0, 0.1);
+  opacity: 0.7;
 }
 
 .title {
@@ -41,7 +42,7 @@ swiper image {
 
 .bottom {
   display: flex;
-  margin-top:8rpx;
+  margin-top: 8rpx;
   align-items: center;
 }
 

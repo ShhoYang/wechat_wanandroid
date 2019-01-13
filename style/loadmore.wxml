@@ -1,4 +1,0 @@
-<view class="loadmore" hidden='{{isHideLoreMore}}'>
-  <view class="loading"></view>
-  <view class="loadmoreLable">玩命加载中</view>
-</view>
