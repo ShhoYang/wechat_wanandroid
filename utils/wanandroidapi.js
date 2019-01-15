@@ -1,6 +1,6 @@
 const api = require('./http')
 
-const BASE_URL = 'http://www.wanandroid.com/'
+const BASE_URL = 'https://haoshi.co:8080/'
 
 const P = "POST"
 
