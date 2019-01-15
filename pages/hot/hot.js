@@ -1,42 +1,36 @@
 const LOAD_LIST_PROXY = require('../..//utils/loadListProxy')
-const API = getApp().wanandroid
-let bannerData = []
+const API = getApp().API
 
 Page({
 
   data: {
-    
+      banner:[]
   },
 
   onLoad: function(options) {
-    LOAD_LIST_PROXY.setPage(this) 
+    LOAD_LIST_PROXY.setPage(this, this.load)
     wx.startPullDownRefresh()
   },
 
   onPullDownRefresh: function() {
-    if (bannerData.length == 0) {
-      API.getBanner()
-        .then(result => {
-          bannerData = result.data.data;
-          this.setData({
-            banner: bannerData
-          })
+    if (this.data.banner.length == 0) {
+      API.getBanner(data => {
+        this.setData({
+          banner: data
         })
-        .catch(e => {
-          console.error(e)
-        })
-    }
-    LOAD_LIST_PROXY.refresh(
-      page => {
-        return API.getHot(page)
+      }, errorMsg => {
+
       })
+    }
+    LOAD_LIST_PROXY.refresh()
   },
 
   onReachBottom: function() {
-    LOAD_LIST_PROXY.loadMore(
-      page => {
-        return API.getHot(page)
-      })
+    LOAD_LIST_PROXY.loadMore()
+  },
+
+   load:function(page, success, fail) {
+    API.getHot(page, success, fail)
   },
 
   link: function(e) {

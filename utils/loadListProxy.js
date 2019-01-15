@@ -6,35 +6,33 @@ const LOAD_MORE_NO_MORE_DATA = 'noMoreData'
 var isLoading = false
 var page = 1
 var enbaleLoadMore = false
-var that = null
 var listData = []
+var that = null
+var loadFun= null
 var dataCallback = null
 
 /**
  * 保存page对象
  */
-function setPage(p, callback) {
+function setPage(p, fun,callback) {
   that = p
+  loadFun = fun
   dataCallback = callback
 }
 
 /**
  * 刷新
  */
-function refresh(fun, response) {
+function refresh(fun) {
   if (isLoading) {
     return;
   }
   wx.showNavigationBarLoading()
   page = 1
-  loadData(true, fun, result => {
-    if (result.errorCode == 0) {
-      refreshFinished(result.data)
-    } else {
-      refreshFail(result.errorMsg)
-    }
-
-  })
+  loadFun(page,
+    data => refreshFinished(data),
+    errorMsg => refreshFail(errorMsg)
+  )
 }
 
 /**
@@ -51,31 +49,10 @@ function loadMore(fun, response) {
   that.setData({
     loadMoreStatus: LOAD_MORE_LOADING
   })
-  loadData(false, fun, result => {
-    if (result.errorCode == 0) {
-      loadMoreFinished(result.data)
-    } else {
-      loadMoreFail(result.errorMsg)
-    }
-  })
-}
-
-/**
- * 加载数据
- */
-function loadData(b, fun, response) {
-  fun(page).then(result => {
-
-    var code = result.statusCode
-    if (code = 200) {
-      response(result.data)
-    } else if (b) {
-      refreshFail(code)
-    } else {
-      loadMoreFail(code)
-    }
-
-  })
+  loadFun(page,
+    data => loadMoreFinished(data),
+    errorMsg => loadMoreFail(errorMsg)
+  )
 }
 
 /**

@@ -1,5 +1,5 @@
 const app = getApp()
-const API = getApp().wanandroid
+const API = app.API
 
 var username = ''
 var password = ''
@@ -11,7 +11,13 @@ Page({
   },
 
   onLoad: function(options) {
-
+    var msg = options.msg
+    if (msg != null) {
+      wx.showToast({
+        title: msg,
+        icon: 'none'
+      })
+    }
   },
 
   /**
@@ -50,29 +56,20 @@ Page({
       duration: 20000
     })
     var value = e.detail.value
-    API.login(value.username, value.password)
-      .then(result => {
-        var ret = result.data
-        if (ret.errorCode == 0) {
-          var cookie = result.header["Set-Cookie"]
-
-          console.error('cookie', cookie)
-
-          console.error('cookie-------')
-          app.logged(username, result.header["Set-Cookie"])
-          wx.showToast({
-            title: '登錄成功',
-            icon: 'success'
-          })
-          wx.navigateBack({
-            delta: 1
-          })
-        } else {
-          wx.showToast({
-            title: ret.errorMsg,
-            icon: 'none'
-          })
-        }
+    API.login(value.username, value.password, data => {
+      app.logged(data.username, data.cookie)
+      wx.showToast({
+        title: '登錄成功',
+        icon: 'success'
       })
+      wx.navigateBack({
+        delta: 1
+      })
+    }, errorMsg => {
+      wx.showToast({
+        title: errorMsg,
+        icon: 'none'
+      })
+    })
   }
 })

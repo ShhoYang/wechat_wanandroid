@@ -1,21 +1,20 @@
 <view class='container'>
 
-<image class='qr' src='http://haoshi.co/images/qr.png' mode='scaleToFill' bindtap='preview'/>
+  <image class='qr' src='https://haoshi.co/images/qr.png' mode='scaleToFill' bindtap='preview' />
 
-<text class='lable'>個人主頁</text>
-<text class='link'>https://haoshi.co</text>
+  <text class='lable'>個人主頁</text>
+  <text class='link'>https://haoshi.co</text>
 
-<text class='lable'>小程序項目鏈接</text>
-<text class='link'>https://github.com/haoshiy/wechat_wanandroid</text>
+  <text class='lable'>小程序項目鏈接</text>
+  <text class='link'>https://github.com/haoshiy/wechat_wanandroid</text>
 
-<text class='lable'>Android項目鏈接</text>
-<text class='link'>https://github.com/haoshiy/kotlin_wanandroid</text>
+  <text class='lable'>Android項目鏈接</text>
+  <text class='link'>https://github.com/haoshiy/kotlin_wanandroid</text>
 
-<text class='lable'>Apk下载地址</text>
-<text class='link'>https://haoshi.co/wanandroid.apk</text>
+  <text class='lable'>Apk下载地址</text>
+  <text class='link'>https://haoshi.co/wanandroid.apk</text>
 
-<text class='lable'>Thanks</text>
-<text class='link'>鸿洋-玩Android开发Api</text>
-<text class='link'>干货集中营开放Api</text>
+  <text class='lable'>Thanks</text>
+  <text class='link'>鸿洋-玩Android开发Api</text>
 
 </view>

@@ -1,6 +1,4 @@
-const ganhuo = require('./utils/ganhuoapi.js')
-
-const wanandroid = require('./utils/wanandroidapi.js')
+const API = require('./utils/api.js')
 
 const KEY_USERNAME = 'KEY_USERNAME'
 
@@ -10,8 +8,7 @@ App({
   isLogin: false,
   username: '未登錄',
   cookie: [],
-  ganhuo: ganhuo,
-  wanandroid: wanandroid,
+  API: API,
 
   onLaunch: function() {
     try {

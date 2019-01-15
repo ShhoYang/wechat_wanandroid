@@ -8,9 +8,9 @@ Page({
 
   },
 
-  preview:function(e){
+  preview: function(e) {
     wx.previewImage({
-      urls: ['http://haoshi.co/images/qr.png']
+      urls: ['https://haoshi.co/images/qr.png']
     })
   }
 })

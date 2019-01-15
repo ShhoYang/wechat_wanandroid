@@ -1,4 +1,4 @@
-const API = getApp().wanandroid
+const API = getApp().API
 var sliderWidth = 96; // 需要设置slider的宽度，用于计算中间位置
 Page({
 
@@ -11,37 +11,29 @@ Page({
 
   onLoad: function(options) {
     wx.getSystemInfo({
-      success: (res) => {
+      success: res => {
         let scrollHeight = res.windowHeight
-        this.setData({
-          scrollHeight: scrollHeight
+        var that = this
+        that.setData({
+          scrollHeight: scrollHeight,
+          sliderLeft: (res.windowWidth / that.data.tabs.length - sliderWidth) / 2,
+          sliderOffset: res.windowWidth / that.data.tabs.length * that.data.activeIndex
         })
         wx.startPullDownRefresh()
       }
     })
-    var that = this;
-    wx.getSystemInfo({
-      success: function(res) {
-        that.setData({
-          sliderLeft: (res.windowWidth / that.data.tabs.length - sliderWidth) / 2,
-          sliderOffset: res.windowWidth / that.data.tabs.length * that.data.activeIndex
-        });
-      }
-    });
 
-    API.getAuthors()
-      .then(result => {
-        this.setData({
-          authors: result.data.data
-        })
+    API.getAuthors(data => {
+      this.setData({
+        authors: data
       })
+    }, errorMsg => {})
 
-    API.getTree()
-      .then(result => {
-        this.setData({
-          tree: result.data.data
-        })
+    API.getTree(data => {
+      this.setData({
+        tree: data
       })
+    }, errorMsg => {})
   },
 
   tabClick: function(e) {

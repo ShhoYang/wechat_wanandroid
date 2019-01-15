@@ -2,7 +2,6 @@
   "pages": [
     "pages/hot/hot",
     "pages/android/android",
-    "pages/find/find",
     "pages/my/my",
     "pages/wechat/wechat",
     "pages/project/project",
@@ -36,12 +35,6 @@
         "text": "乾貨",
         "iconPath": "images/android.png",
         "selectedIconPath": "images/android-selected.png"
-      },
-      {
-        "pagePath": "pages/find/find",
-        "text": "發現",
-        "iconPath": "images/find.png",
-        "selectedIconPath": "images/find-selected.png"
       },
       {
         "pagePath": "pages/my/my",

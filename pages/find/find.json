@@ -1,7 +1,0 @@
-{
-  "navigationBarTitleText": "發現",
-  "enablePullDownRefresh": true,
-  "usingComponents": {
-    "load-more": "../../components/load-more/load-more"
-  }
-}

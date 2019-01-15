@@ -1,13 +1,14 @@
 const LOAD_LIST_PROXY = require('../..//utils/loadListProxy')
-const API = getApp().wanandroid
+const API = getApp().API
 let id = 0
+
 Page({
 
   data: {},
 
   onLoad: function(options) {
     id = options.id
-    LOAD_LIST_PROXY.setPage(this)
+    LOAD_LIST_PROXY.setPage(this,this.load)
     wx.setNavigationBarTitle({
       title: options.type
     })
@@ -15,16 +16,14 @@ Page({
   },
 
   onPullDownRefresh: function() {
-    LOAD_LIST_PROXY.refresh(
-      page => {
-        return API.getProjectArticles(id, page)
-      })
+    LOAD_LIST_PROXY.refresh()
   },
 
   onReachBottom: function() {
-    LOAD_LIST_PROXY.loadMore(
-      page => {
-        return API.getProjectArticles(id, page)
-      })
+    LOAD_LIST_PROXY.loadMore()
+  },
+
+  load: function(page, success, fail) {
+    API.getProjectArticles(id, page, success, fail)
   }
 })
