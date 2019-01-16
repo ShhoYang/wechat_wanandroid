@@ -1,14 +1,2 @@
-<view class='container'>
-  <scroll-view scroll-y='true'>
-    <navigator class='listItem' hover-class='listItemActive' wx:for='{{list}}' wx:key='id' wx:for-index='index' url='../detail/detail?url={{item.link}}'>
-      <text class='title'>{{item.title}}</text>
-      <view class='bottom'>
-        <text class='time'>時間:{{item.niceDate}}</text>
-        <view class='fav' hover-stop-propagation='true' catchtap='fav' data-index='{{index}}' data-fav='{{item.collect}}'>
-          <image class='icon' src="{{item.collect?'../../images/ic_fav_1.png':'../../images/ic_fav_0.png'}}" />
-        </view>
-      </view>
-    </navigator>
-  </scroll-view>
-  <load-more status='{{loadMoreStatus}}' />
-</view>
+<import src="../common/list.wxml" />
+<template is="list1" data="{{list,loadMoreStatus}}" />

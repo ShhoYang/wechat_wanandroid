@@ -4,9 +4,7 @@ let id = 0
 
 Page({
 
-  data: {
-    list: []
-  },
+  data: {},
 
   onLoad: function(options) {
     id = options.id
@@ -30,12 +28,6 @@ Page({
   },
 
   fav: function(e) {
-    var index = e.currentTarget.dataset.index
-    var itemCollect = 'list[' + index + '].collect'
-    var temp = this.data.list[index].collect
-    this.data.list[index].collect = !temp
-    this.setData({
-      [itemCollect]: !temp
-    })
+    LOAD_LIST_PROXY.fav(e)
   }
 })

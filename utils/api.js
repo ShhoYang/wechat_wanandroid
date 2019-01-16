@@ -18,7 +18,6 @@ function service(method, url, params, success, fail, processCookie) {
       'cookie': getApp().cookie
     },
     success: function(res) {
-      console.error('success', res)
       if (res.statusCode == 200) {
         var data = res.data
         if (data.errorCode == 0) {
@@ -31,7 +30,6 @@ function service(method, url, params, success, fail, processCookie) {
       }
     },
     fail: function(res) {
-      onsole.error('fail', res)
       fail(res)
     }
   })
@@ -52,7 +50,6 @@ function login(username, password, success, fail) {
       'content-type': 'application/x-www-form-urlencoded',
     },
     success: function(res) {
-      console.error('success', res)
       if (res.statusCode == 200) {
         var data = res.data
         if (data.errorCode == 0) {
@@ -66,7 +63,6 @@ function login(username, password, success, fail) {
       }
     },
     fail: function(res) {
-      onsole.error('fail', res)
       fail(res)
     }
   })
@@ -91,10 +87,33 @@ function logout(success, fail) {
 }
 
 /**
- * 收藏
+ * 收藏列表
  */
 function getFav(page, success, fail) {
   service(G, `${BASE_URL}lg/collect/list/${page - 1}/json`, {}, success, fail)
+}
+
+/**
+ * 添加收藏
+ */
+function addFav(id, success, fail) {
+  service(P, `${BASE_URL}lg/collect/${id}/json`, {}, success, fail)
+}
+
+/**
+ * 取消收藏
+ */
+function cancelFav(id, success, fail) {
+  service(P, `${BASE_URL}lg/uncollect_originId/${id}/json`, {}, success, fail)
+}
+
+/**
+ * 取消收藏
+ */
+function cancelFavFromMyFav(id, originId, success, fail) {
+  service(P, `${BASE_URL}lg/uncollect/${id}/json`, {
+    originId: originId
+  }, success, fail)
 }
 
 /**
@@ -149,5 +168,8 @@ module.exports = {
   getAuthors,
   getWechatArticles,
   getTree,
-  getProjectArticles
+  getProjectArticles,
+  addFav,
+  cancelFav,
+  cancelFavFromMyFav
 }

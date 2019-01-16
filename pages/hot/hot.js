@@ -4,12 +4,20 @@ const API = getApp().API
 Page({
 
   data: {
-      banner:[]
+    banner: []
   },
 
   onLoad: function(options) {
     LOAD_LIST_PROXY.setPage(this, this.load)
     wx.startPullDownRefresh()
+  },
+
+  onShow: function() {
+    var app = getApp()
+    if (app.hotChange) {
+      wx.startPullDownRefresh()
+      app.hotChange = false
+    }
   },
 
   onPullDownRefresh: function() {
@@ -29,7 +37,7 @@ Page({
     LOAD_LIST_PROXY.loadMore()
   },
 
-   load:function(page, success, fail) {
+  load: function(page, success, fail) {
     API.getHot(page, success, fail)
   },
 
@@ -37,5 +45,9 @@ Page({
     wx.navigateTo({
       url: `../detail/detail?url=${e.currentTarget.dataset.link}`
     })
+  },
+
+  fav: function(e) {
+    LOAD_LIST_PROXY.fav(e)
   }
 })

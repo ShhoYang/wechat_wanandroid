@@ -25,5 +25,9 @@ Page({
 
   load: function(page, success, fail) {
     API.getProjectArticles(id, page, success, fail)
+  },
+
+  fav: function (e) {
+    LOAD_LIST_PROXY.fav(e)
   }
 })

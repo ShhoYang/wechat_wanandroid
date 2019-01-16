@@ -9,6 +9,7 @@ App({
   username: '未登錄',
   cookie: [],
   API: API,
+  hotChange: false,
 
   onLaunch: function() {
     try {
@@ -19,7 +20,7 @@ App({
       }
       wx.getStorage({
         key: KEY_COOKIE,
-        success: (res) =>{
+        success: (res) => {
           if (res.errMsg == 'getStorage:ok') {
             this.cookie = res.data
           }
@@ -34,6 +35,7 @@ App({
     this.isLogin = true
     this.username = username
     this.cookie = cookie
+    this.hotChange = true
     wx.setStorage({
       key: KEY_USERNAME,
       data: username
@@ -49,6 +51,7 @@ App({
     this.isLogin = false
     this.username = '未登錄'
     this.cookie = []
+    this.hotChange = true
     wx.removeStorage({
       key: KEY_USERNAME,
       success: function(res) {},
