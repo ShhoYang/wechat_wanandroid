@@ -1,4 +1,4 @@
-const LOAD_LIST_PROXY = require('../..//utils/loadListProxy')
+const LOAD_LIST_PROXY = require('../../utils/loadListProxy.js').getProxy()
 const API = getApp().API
 let id = 0
 
