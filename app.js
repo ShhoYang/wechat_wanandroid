@@ -10,6 +10,7 @@ App({
   cookie: [],
   API: API,
   hotChange: false,
+  a:null,
 
   onLaunch: function() {
     try {

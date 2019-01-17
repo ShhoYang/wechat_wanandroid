@@ -1,6 +1,12 @@
 <view class='container'>
 
-  <image class='qr' src='https://haoshi.co/images/qr.png' mode='scaleToFill' bindtap='preview' />
+  <view class='qr'>
+    <image class='qrImage' src='https://haoshi.co/images/qr.png' mode='scaleToFill' data-image='https://haoshi.co/images/qr.png' bindtap='preview' />
+
+    <image class='qrImage' src='https://haoshi.co/images/qr_wechat.jpg' mode='scaleToFill' data-image='https://haoshi.co/images/qr_wechat.jpg' bindtap='preview' />
+  </view>
+
+
 
   <text class='lable'>個人主頁</text>
   <text class='link'>https://haoshi.co</text>

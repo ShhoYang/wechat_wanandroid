@@ -1,2 +1,2 @@
 <import src="../common/list.wxml" />
-<template is="list3" data="{{list,loadMoreStatus}}" />
+<template is="list" data="{{fav,list,loadMoreStatus}}" />

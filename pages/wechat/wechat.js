@@ -1,10 +1,13 @@
 const LOAD_LIST_PROXY = require('../../utils/loadListProxy.js').getProxy()
+const FAV_PROXY = require('../../utils/favProxy.js')
 const API = getApp().API
 let id = 0
 
 Page({
 
-  data: {},
+  data: {
+    hiddenAuthor: true
+  },
 
   onLoad: function(options) {
     id = options.id
@@ -27,7 +30,14 @@ Page({
     API.getWechatArticles(id, page, success, fail)
   },
 
+  link: function(e) {
+    wx.navigateTo({
+      url: `../detail/detail?url=${e.currentTarget.dataset.link}`
+    })
+  },
+
   fav: function(e) {
-    LOAD_LIST_PROXY.fav(e)
+    console.error(LOAD_LIST_PROXY.getListData())
+    FAV_PROXY.fav(this, LOAD_LIST_PROXY.getListData(), e)
   }
 })

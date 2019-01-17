@@ -1,2 +1,2 @@
 <import src="../common/list.wxml" />
-<template is="list1" data="{{list,loadMoreStatus}}" />
+<template is="list" data="{{hiddenAuthor,list,loadMoreStatus}}" />

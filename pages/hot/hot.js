@@ -1,4 +1,5 @@
 const LOAD_LIST_PROXY = require('../../utils/loadListProxy.js').getProxy()
+const FAV_PROXY = require('../../utils/favProxy.js')
 const API = getApp().API
 
 Page({
@@ -8,11 +9,22 @@ Page({
   },
 
   onLoad: function(options) {
+    getApp().a = LOAD_LIST_PROXY
     LOAD_LIST_PROXY.setPage(this, this.load)
     wx.startPullDownRefresh()
   },
 
+
+  onReady: function() {
+    var app = getApp()
+    if (app.hotChange) {
+      wx.startPullDownRefresh()
+      app.hotChange = false
+    }
+  },
+
   onShow: function() {
+    LOAD_LIST_PROXY.setPage(this, this.load)
     var app = getApp()
     if (app.hotChange) {
       wx.startPullDownRefresh()
@@ -48,6 +60,7 @@ Page({
   },
 
   fav: function(e) {
-    LOAD_LIST_PROXY.fav(e)
+    console.error(LOAD_LIST_PROXY.getListData())
+    FAV_PROXY.fav(this, LOAD_LIST_PROXY.getListData(), e)
   }
 })

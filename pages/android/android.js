@@ -10,24 +10,25 @@ Page({
   },
 
   onLoad: function(options) {
+    wx.showNavigationBarLoading()
     wx.getSystemInfo({
       success: res => {
-        let scrollHeight = res.windowHeight
         var that = this
         that.setData({
-          scrollHeight: scrollHeight,
           sliderLeft: (res.windowWidth / that.data.tabs.length - sliderWidth) / 2,
           sliderOffset: res.windowWidth / that.data.tabs.length * that.data.activeIndex
         })
-        wx.startPullDownRefresh()
       }
     })
 
     API.getAuthors(data => {
+      wx.hideNavigationBarLoading()
       this.setData({
         authors: data
       })
-    }, errorMsg => {})
+    }, errorMsg => {
+      wx.hideNavigationBarLoading()
+    })
 
     API.getTree(data => {
       this.setData({

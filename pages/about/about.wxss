@@ -1,6 +1,7 @@
-page{
+page {
   height: 100vh;
 }
+
 .container {
   padding: 48rpx;
   display: flex;
@@ -8,19 +9,23 @@ page{
   justify-content: center;
 }
 
-.qr{
-  margin: 0 auto;
-  display: inline-block;
-  width: 40vw;
-  height: 40vw;
+.qr {
+  display: flex;
+  flex-direction: row;
 }
 
-.lable{
+.qrImage {
+  margin: 0 auto;
+  width: 35vw;
+  height: 35vw;
+}
+
+.lable {
   font-size: 10pt;
   margin-top: 32rpx;
 }
 
-.link{
+.link {
   font-size: 10pt;
   color: #586c94;
   word-wrap: break-word;

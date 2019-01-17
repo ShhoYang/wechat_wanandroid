@@ -3,7 +3,9 @@ const API = getApp().API
 
 Page({
 
-  data: {},
+  data: {
+    fav: true
+  },
 
   onLoad: function(options) {
     LOAD_LIST_PROXY.setPage(this, this.load)
@@ -38,7 +40,7 @@ Page({
     var index = e.currentTarget.dataset.index
     var item = this.data.list[index]
     API.cancelFavFromMyFav(item.id, item.originId, data => {
-      this.toast('取消收藏成功')
+      this.toast('取消成功', 'success')
       var d = this.data.list
       d.splice(index, 1)
       this.setData({
@@ -51,14 +53,21 @@ Page({
       }
       getApp().hotChange = true
     }, errorMsg => {
-      this.toast('取消收藏失敗')
+      this.toast('取消失敗', 'none')
     })
   },
 
-  toast: function(msg) {
+  toast: function(msg, icon) {
     wx.showToast({
       title: msg,
-      icon: 'none'
+      icon: icon,
+      duration: 800
     })
-  }
+  },
+
+  link: function(e) {
+    wx.navigateTo({
+      url: `../detail/detail?url=${e.currentTarget.dataset.link}`
+    })
+  },
 })

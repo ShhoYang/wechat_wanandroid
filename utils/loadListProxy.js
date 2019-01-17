@@ -38,7 +38,7 @@ function Proxy() {
     if (isLoading) {
       return;
     }
-    wx.showNavigationBarLoading()
+    // wx.showNavigationBarLoading()
     page = 1
     loadFun(page,
       data => this.refreshFinished(data),
@@ -56,7 +56,7 @@ function Proxy() {
     if (isLoading) {
       return;
     }
-    wx.showNavigationBarLoading()
+    // wx.showNavigationBarLoading()
     that.setData({
       loadMoreStatus: LOAD_MORE_LOADING
     })
@@ -75,7 +75,7 @@ function Proxy() {
       wx.stopPullDownRefresh()
       var list = data.datas
       if (list == null || list.length == 0) {
-        noData()
+        this.noData()
       } else {
         listData = list
         if (dataCallback == null) {
@@ -145,79 +145,20 @@ function Proxy() {
    * 刷新失败
    */
   this.refreshFail = function(msg) {
-    wx.hideNavigationBarLoading()
+    // wx.hideNavigationBarLoading()
     wx.stopPullDownRefresh
+    this.toast('刷新失敗')
   }
 
   /**
    * 加载失败
    */
   this.loadMoreFail = function(msg) {
-    wx.hideNavigationBarLoading()
+    // wx.hideNavigationBarLoading()
     that.setData({
       loadMoreStatus: LOAD_MORE_HIDDEN
     })
-  }
-
-  /**
-   * 收藏操作
-   */
-  this.fav = function(e) {
-    if (!getApp().isLogin) {
-      wx.navigateTo({
-        url: '../../pages/login/login?msg=請先登錄',
-      })
-      return
-    }
-    var index = e.currentTarget.dataset.index
-    var item = that.data.list[index]
-    if (item.collect) {
-      this.cancelFav(item, index)
-    } else {
-      this.addFav(item, index)
-    }
-  }
-
-  /**
-   * 添加收藏
-   */
-  this.addFav = function(item, index) {
-    API.addFav(item.id, data => {
-      this.toast('收藏成功')
-      item.collect = true
-      that.setData({
-        ['list[' + index + '].collect']: true
-      })
-    }, errorMsg => {
-      this.toast('收藏失敗')
-    })
-  }
-
-  /**
-   * 取消收藏
-   */
-  this.cancelFav = function(item, index) {
-    wx.showModal({
-      title: '取消收藏',
-      content: '確認取消該收藏',
-      success: res => {
-        if (res.confirm) {
-          this.doCancleFav(item, index)
-        }
-      }
-    })
-  }
-
-  this.doCancleFav = function(item, index) {
-    API.cancelFav(item.id, data => {
-      this.toast('取消收藏成功')
-      item.collect = false
-      that.setData({
-        ['list[' + index + '].collect']: false
-      })
-    }, errorMsg => {
-      this.toast('取消收藏失敗')
-    })
+    this.toast('加載失敗')
   }
 
   this.toast = function(msg) {
@@ -226,8 +167,11 @@ function Proxy() {
       icon: 'none'
     })
   }
-}
 
+  this.getListData = function() {
+    return listData
+  }
+}
 module.exports = {
   getProxy
 }

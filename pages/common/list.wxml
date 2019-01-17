@@ -2,68 +2,14 @@
   <scroll-view class='list' scroll-y='true'>
     <view class='listItem' hover-class='listItemActive' wx:for='{{list}}' wx:key='_id' bindtap='link' data-link='{{item.link}}'>
       <text class='title'>{{item.title}}</text>
-      <image class='imageBig' src='{{item.envelopePic}}' mode='widthFix' />
+      <image class='imageBig' wx:if='{{item.envelopePic}}' hidden='{{!item.envelopePic}}' mode='widthFix' src='{{item.envelopePic}}' />
       <view class='bottom' hover-stop-propagation='true'>
         <view class='info'>
-          <text class='author' space='nbsp'>{{item.author}}  </text>
+          <text class='author' wx:if='{{!hiddenAuthor}}' hidden='{{hiddenAuthor}}' space='nbsp'>{{item.author}}  </text>
           <text class='time'>{{item.niceDate}}</text>
-          <view class='link' hover-class='linkActive' hover-stop-propagation='true' catchtap='link' data-link='{{item.projectLink}}'>項目鏈接</view>
+          <view class='link' hover-class='linkActive' wx:if='{{item.projectLink}}' hidden='{{!item.projectLink}}' catchtap='link' data-link='{{item.projectLink}}'>項目鏈接</view>
         </view>
-        <image class='fav' catchtap='fav' data-index='{{index}}' src="{{item.collect?'../../images/ic_fav_1.png':'../../images/ic_fav_0.png'}}" />
-      </view>
-    </view>
-  </scroll-view>
-  <load-more status='{{loadMoreStatus}}' />
-</template>
-
-<!-- ################################ -->
-
-<template name="list1">
-  <scroll-view class='list' scroll-y='true'>
-    <view class='listItem' hover-class='listItemActive' wx:for='{{list}}' wx:key='_id' bindtap='link' data-link='{{item.link}}'>
-      <text class='title'>{{item.title}}</text>
-      <view class='bottom' hover-stop-propagation='true'>
-        <view class='info'>
-          <text class='time'>{{item.niceDate}}</text>
-        </view>
-        <image class='fav' catchtap='fav' data-index='{{index}}' src="{{item.collect?'../../images/ic_fav_1.png':'../../images/ic_fav_0.png'}}" />
-      </view>
-    </view>
-  </scroll-view>
-  <load-more status='{{loadMoreStatus}}' />
-</template>
-
-<!-- ################################ -->
-
-<template name="list2">
-  <scroll-view class='list' scroll-y='true'>
-    <view class='listItem' hover-class='listItemActive' wx:for='{{list}}' wx:key='_id' bindtap='link' data-link='{{item.link}}'>
-      <text class='title'>{{item.title}}</text>
-      <view class='bottom' hover-stop-propagation='true'>
-        <view class='info'>
-          <text class='author' space='nbsp'>{{item.author}}  </text>
-          <text class='time'>{{item.niceDate}}</text>
-        </view>
-        <image class='fav' catchtap='fav' data-index='{{index}}' src="{{item.collect?'../../images/ic_fav_1.png':'../../images/ic_fav_0.png'}}" />
-      </view>
-    </view>
-  </scroll-view>
-  <load-more status='{{loadMoreStatus}}' />
-</template>
-
-<!-- ################################ -->
-
-<template name="list3">
-  <scroll-view class='list' scroll-y='true'>
-    <view class='listItem' hover-class='listItemActive' wx:for='{{list}}' wx:key='_id' bindtap='link' data-link='{{item.link}}'>
-      <text class='title'>{{item.title}}</text>
-      <image class='imageBig' wx:if='{{item.envelopePic}}' hidden='{{!item.envelopePic}}' src='{{item.envelopePic}}' mode='widthFix' />
-      <view class='bottom' hover-stop-propagation='true'>
-        <view class='info'>
-          <text class='author' space='nbsp'>{{item.author}}  </text>
-          <text class='time'>{{item.niceDate}}</text>
-        </view>
-        <image class='fav' catchtap='fav' data-index='{{index}}' src='../../images/ic_fav_1.png' />
+        <image class='fav' catchtap='fav' data-index='{{index}}' src="{{(item.collect || fav)?'../../images/ic_fav_1.png':'../../images/ic_fav_0.png'}}" />
       </view>
     </view>
   </scroll-view>
