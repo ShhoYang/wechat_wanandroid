@@ -1,6 +1,6 @@
 form {
   display: block;
-  margin: 20vh 32rpx 32rpx;
+  margin: 16vh 32rpx 32rpx;
 }
 
 .password {
@@ -10,10 +10,4 @@ form {
 
 button {
   margin-top: 48rpx;
-}
-
-.register {
-  float: right;
-  margin-right: 32rpx;
-  font-size: 10pt;
 }

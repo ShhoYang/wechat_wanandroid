@@ -1,21 +1,21 @@
 const LOAD_LIST_PROXY = require('../../utils/loadListProxy.js').getProxy()
 const FAV_PROXY = require('../../utils/favProxy.js')
 const API = getApp().API
-let id = 0
+let key = ''
 
 Page({
 
   data: {
-    hiddenAuthor: true
+
   },
 
   onLoad: function(options) {
-    id = options.id
+    key = options.key
     LOAD_LIST_PROXY.setPage(this, this.load)
+    LOAD_LIST_PROXY.refreshFinished(JSON.parse(decodeURIComponent(options.data)))
     wx.setNavigationBarTitle({
-      title: options.author
+      title: key
     })
-    wx.startPullDownRefresh()
   },
 
   onPullDownRefresh: function() {
@@ -27,7 +27,7 @@ Page({
   },
 
   load: function(page, success, fail) {
-    API.getWechatArticles(id, page, success, fail)
+    API.search(key, page, success, fail)
   },
 
   link: function(e) {

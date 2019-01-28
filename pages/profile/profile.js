@@ -5,9 +5,14 @@ Page({
   },
 
   onLoad: function(options) {
+    wx.showNavigationBarLoading()
     this.setData({
       hiddenNickname: !app.isLogin,
       nickname: app.username
     })
+  },
+
+  onReady: function() {
+    wx.hideNavigationBarLoading()
   }
 })

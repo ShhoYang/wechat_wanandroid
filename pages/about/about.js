@@ -5,7 +5,11 @@ Page({
   },
 
   onLoad: function(options) {
+    wx.showNavigationBarLoading()
+  },
 
+  onReady: function() {
+    wx.hideNavigationBarLoading()
   },
 
   preview: function(e) {

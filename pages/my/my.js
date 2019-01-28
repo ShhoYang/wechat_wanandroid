@@ -19,14 +19,11 @@ Page({
   },
 
   onLoad: function(options) {
-
+    wx.showNavigationBarLoading()
   },
 
-  onShow: function() {
-    this.setData({
-      username: app.username,
-      isLogin: app.isLogin
-    })
+  onReady: function() {
+    wx.hideNavigationBarLoading()
   },
 
   navigation: function(e) {

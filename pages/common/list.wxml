@@ -1,7 +1,8 @@
+<wxs src="../../wxs/string.wxs" module="tools" />
 <template name="list">
   <scroll-view class='list' scroll-y='true'>
     <view class='listItem' hover-class='listItemActive' wx:for='{{list}}' wx:key='_id' bindtap='link' data-link='{{item.link}}'>
-      <text class='title'>{{item.title}}</text>
+      <text class='title'>{{tools.replace(item.title)}}</text>
       <image class='imageBig' wx:if='{{item.envelopePic}}' hidden='{{!item.envelopePic}}' mode='widthFix' src='{{item.envelopePic}}' />
       <view class='bottom' hover-stop-propagation='true'>
         <view class='info'>

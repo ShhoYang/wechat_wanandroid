@@ -98,7 +98,7 @@ function Proxy() {
    */
   this.loadMoreFinished = function(data) {
     setTimeout(() => {
-      wx.hideNavigationBarLoading()
+      //wx.hideNavigationBarLoading()
       var list = data.datas
       listData = listData.concat(list)
       if (dataCallback == null) {

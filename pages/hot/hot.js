@@ -60,7 +60,6 @@ Page({
   },
 
   fav: function(e) {
-    console.error(LOAD_LIST_PROXY.getListData())
     FAV_PROXY.fav(this, LOAD_LIST_PROXY.getListData(), e)
   }
 })

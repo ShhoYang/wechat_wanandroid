@@ -1,0 +1,8 @@
+<view class='container'>
+  <form bindsubmit='register'>
+    <my-input name='username' class='username' lable='賬  號' placeholder='請輸入賬號(6-16個數字、字母)' bindchange='usernameInput' />
+    <my-input name='password' class='password' lable='密  碼' placeholder='請輸入密碼(6-16個數字、字母)' password='true' bindchange='passwordInput' />
+    <my-input name='confirmPassword' class='password' lable='確認密碼' placeholder='請輸入確認密碼(6-16個數字、字母)' password='true' bindchange='confirmPasswordInput' />
+    <button type='primary' disabled='{{buttonDisabled}}' form-type='submit'>註冊</button>
+  </form>
+</view>

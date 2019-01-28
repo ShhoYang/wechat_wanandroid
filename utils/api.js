@@ -158,6 +158,22 @@ function getProjectArticles(id, page, success, fail) {
   service(G, `${BASE_URL}article/list/${page - 1}/json?cid=${id}`, {}, success, fail)
 }
 
+/**
+ * 搜索热词
+ */
+function getHotKey(success, fail) {
+  service(G, `${BASE_URL}hotkey/json`, {}, success, fail)
+}
+
+/**
+ * 搜索
+ */
+function search(key, page, success, fail) {
+  service(P, `${BASE_URL}article/query/${page - 1}/json`, {
+    k: key
+  }, success, fail)
+}
+
 module.exports = {
   register,
   login,
@@ -171,5 +187,7 @@ module.exports = {
   getProjectArticles,
   addFav,
   cancelFav,
-  cancelFavFromMyFav
+  cancelFavFromMyFav,
+  getHotKey,
+  search
 }

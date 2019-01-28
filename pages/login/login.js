@@ -7,10 +7,12 @@ var password = ''
 Page({
 
   data: {
-    buttonDisabled: false
+    username: '',
+    buttonDisabled: true
   },
 
   onLoad: function(options) {
+    wx.showNavigationBarLoading()
     var msg = options.msg
     if (msg != null) {
       wx.showToast({
@@ -18,6 +20,10 @@ Page({
         icon: 'none'
       })
     }
+  },
+
+  onReady: function () {
+    wx.hideNavigationBarLoading()
   },
 
   /**
@@ -50,6 +56,7 @@ Page({
    * 登录
    */
   login: function(e) {
+
     wx.showToast({
       title: '正在登錄...',
       icon: 'loading',
@@ -61,6 +68,13 @@ Page({
       wx.showToast({
         title: '登錄成功',
         icon: 'success'
+      })
+      var pages = getCurrentPages()
+      var size = pages.length
+      var my = pages[size - 2]
+      my.setData({
+        username: data.username,
+        isLogin: true
       })
       wx.navigateBack({
         delta: 1

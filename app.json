@@ -2,15 +2,17 @@
   "pages": [
     "pages/hot/hot",
     "pages/android/android",
+    "pages/search/search",
     "pages/my/my",
     "pages/wechat/wechat",
     "pages/project/project",
     "pages/detail/detail",
+    "pages/searchResult/searchResult",
     "pages/login/login",
+    "pages/register/register",
     "pages/profile/profile",
     "pages/fav/fav",
     "pages/about/about"
-    
   ],
   "window": {
     "backgroundColor": "#f8f8f8",
@@ -35,6 +37,12 @@
         "text": "乾貨",
         "iconPath": "images/android.png",
         "selectedIconPath": "images/android-selected.png"
+      },
+      {
+        "pagePath": "pages/search/search",
+        "text": "搜索",
+        "iconPath": "images/search.png",
+        "selectedIconPath": "images/search-selected.png"
       },
       {
         "pagePath": "pages/my/my",

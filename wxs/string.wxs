@@ -1,0 +1,6 @@
+function replace(s) {
+  var reg = getRegExp('<[^>]+>', 'g')
+  return s.replace(reg, '')
+}
+
+module.exports.replace = replace
