@@ -14,24 +14,6 @@ Page({
     wx.startPullDownRefresh()
   },
 
-
-  onReady: function() {
-    var app = getApp()
-    if (app.hotChange) {
-      wx.startPullDownRefresh()
-      app.hotChange = false
-    }
-  },
-
-  onShow: function() {
-    LOAD_LIST_PROXY.setPage(this, this.load)
-    var app = getApp()
-    if (app.hotChange) {
-      wx.startPullDownRefresh()
-      app.hotChange = false
-    }
-  },
-
   onPullDownRefresh: function() {
     if (this.data.banner.length == 0) {
       API.getBanner(data => {
@@ -54,9 +36,9 @@ Page({
   },
 
   link: function(e) {
-    wx.navigateTo({
-      url: `../detail/detail?url=${e.currentTarget.dataset.link}`
-    })
+    // wx.navigateTo({
+    //   url: `../detail/detail?url=${e.currentTarget.dataset.link}`
+    // })
   },
 
   fav: function(e) {

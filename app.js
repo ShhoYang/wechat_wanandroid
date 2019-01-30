@@ -9,8 +9,6 @@ App({
   username: '未登錄',
   cookie: [],
   API: API,
-  hotChange: false,
-  a:null,
 
   onLaunch: function() {
     try {
@@ -36,7 +34,6 @@ App({
     this.isLogin = true
     this.username = username
     this.cookie = cookie
-    this.hotChange = true
     wx.setStorage({
       key: KEY_USERNAME,
       data: username
@@ -52,7 +49,6 @@ App({
     this.isLogin = false
     this.username = '未登錄'
     this.cookie = []
-    this.hotChange = true
     wx.removeStorage({
       key: KEY_USERNAME,
       success: function(res) {},

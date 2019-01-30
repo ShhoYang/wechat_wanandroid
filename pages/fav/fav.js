@@ -66,8 +66,8 @@ Page({
   },
 
   link: function(e) {
-    wx.navigateTo({
-      url: `../detail/detail?url=${e.currentTarget.dataset.link}`
-    })
+    // wx.navigateTo({
+    //   url: `../detail/detail?url=${e.currentTarget.dataset.link}`
+    // })
   },
 })
