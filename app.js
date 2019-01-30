@@ -5,23 +5,28 @@ const KEY_USERNAME = 'KEY_USERNAME'
 const KEY_COOKIE = 'KEY_COOKIE'
 
 App({
-  isLogin: false,
-  username: '未登錄',
-  cookie: [],
+
   API: API,
+
+  globalData: {
+    username: '未登錄',
+    cookie: [],
+    isLogin: false
+  },
 
   onLaunch: function() {
     try {
-      var value = wx.getStorageSync(KEY_USERNAME)
-      if (value) {
-        this.username = value
-        this.isLogin = true;
-      }
+      this.globalData.username = wx.getStorageSync(KEY_USERNAME)
       wx.getStorage({
         key: KEY_COOKIE,
         success: (res) => {
           if (res.errMsg == 'getStorage:ok') {
-            this.cookie = res.data
+            var cookie = res.data
+            var that = this.globalData
+            if (that.username && cookie) {
+              that.isLogin = true
+              that.cookie = cookie
+            }
           }
         }
       })
@@ -31,9 +36,10 @@ App({
   },
 
   logged: function(username, cookie) {
-    this.isLogin = true
-    this.username = username
-    this.cookie = cookie
+    var that = this.globalData
+    that.isLogin = true
+    that.username = username
+    that.cookie = cookie
     wx.setStorage({
       key: KEY_USERNAME,
       data: username
@@ -46,16 +52,12 @@ App({
   },
 
   logout: function() {
-    this.isLogin = false
-    this.username = '未登錄'
-    this.cookie = []
-    wx.removeStorage({
-      key: KEY_USERNAME,
-      success: function(res) {},
-    })
+    var that = this.globalData
+    that.isLogin = false
+    that.cookie = []
     wx.removeStorage({
       key: KEY_COOKIE,
-      success: function(res) {},
+      success: function(res) {}
     })
   }
 })

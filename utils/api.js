@@ -15,7 +15,7 @@ function service(method, url, params, success, fail, processCookie) {
     header: {
       // 'content-type': 'application/json'
       'content-type': 'application/x-www-form-urlencoded',
-      'cookie': getApp().cookie
+      'cookie': getApp().globalData.cookie
     },
     success: function(res) {
       if (res.statusCode == 200) {

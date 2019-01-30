@@ -12,6 +12,9 @@ Page({
 
   onLoad: function(options) {
     wx.showNavigationBarLoading()
+    username = ''
+    password = ''
+    confrimPassword = ''
   },
 
   onReady: function() {
@@ -56,7 +59,7 @@ Page({
    * 注册
    */
   register: function(e) {
-
+    console.error(e)
     if (password != confrimPassword) {
       wx.showToast({
         title: '確認密碼和密碼不符',
@@ -82,10 +85,8 @@ Page({
       setTimeout(() => {
         var pages = getCurrentPages()
         var size = pages.length
-        var my = pages[size - 2]
-        my.setData({
-          username: username,
-        })
+        var login = pages[size - 2]
+        login.setUsername(username)
         wx.navigateBack({
           delta: 1
         })

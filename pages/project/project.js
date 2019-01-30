@@ -1,7 +1,10 @@
 const LOAD_LIST_PROXY = require('../../utils/loadListProxy.js').getProxy()
 const FAV_PROXY = require('../../utils/favProxy.js')
+const EVENT = require('../../utils/event.js')
 const API = getApp().API
 let id = 0
+
+var isRefresh = false
 
 Page({
 
@@ -14,6 +17,20 @@ Page({
       title: options.type
     })
     wx.startPullDownRefresh()
+    EVENT.register('UserChanged', this, function() {
+      isRefresh = true
+    })
+  },
+
+  onUnload: function() {
+    EVENT.unregister('UserChanged', this)
+  },
+
+  onShow: function() {
+    if (isRefresh) {
+      isRefresh = false
+      wx.startPullDownRefresh()
+    }
   },
 
   onPullDownRefresh: function() {

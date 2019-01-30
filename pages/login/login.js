@@ -1,3 +1,4 @@
+const EVENT = require('../../utils/event.js')
 const app = getApp()
 const API = app.API
 
@@ -7,7 +8,6 @@ var password = ''
 Page({
 
   data: {
-    username: '',
     buttonDisabled: true
   },
 
@@ -20,10 +20,24 @@ Page({
         icon: 'none'
       })
     }
+    var name = app.globalData.username
+    if (name != null && name != '' && name != '未登錄') {
+      this.setUsername(name)
+    }
   },
 
-  onReady: function () {
+  onReady: function() {
     wx.hideNavigationBarLoading()
+  },
+
+  setUsername: function(name) {
+    username = name
+    password = ''
+    this.setData({
+      username: name,
+      password: '',
+      buttonDisabled: true
+    })
   },
 
   /**
@@ -56,7 +70,6 @@ Page({
    * 登录
    */
   login: function(e) {
-
     wx.showToast({
       title: '正在登錄...',
       icon: 'loading',
@@ -64,18 +77,12 @@ Page({
     })
     var value = e.detail.value
     API.login(value.username, value.password, data => {
-      app.logged(data.username, data.cookie)
       wx.showToast({
         title: '登錄成功',
         icon: 'success'
       })
-      var pages = getCurrentPages()
-      var size = pages.length
-      var my = pages[size - 2]
-      my.setData({
-        username: data.username,
-        isLogin: true
-      })
+      app.logged(data.username, data.cookie)
+      EVENT.send('UserChanged', '')
       wx.navigateBack({
         delta: 1
       })

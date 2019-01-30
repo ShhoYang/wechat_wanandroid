@@ -1,10 +1,15 @@
+const EVENT = require('../../utils/event.js')
 const app = getApp()
 const API = app.API
+const globalData = app.globalData
+
+var isRefresh = false
+
 Page({
 
   data: {
-    username: app.username,
-    isLogin: app.isLogin,
+    username: '',
+    isLogin: false,
     menu: [{
         icon: '../../images/fav.png',
         text: '我的收藏',
@@ -20,6 +25,27 @@ Page({
 
   onLoad: function(options) {
     wx.showNavigationBarLoading()
+    this.setData({
+      username: globalData.isLogin ? globalData.username : '未登錄',
+      isLogin: globalData.isLogin
+    })
+    EVENT.register('UserChanged', this, function() {
+      isRefresh = true
+    })
+  },
+
+  onUnload: function() {
+    EVENT.unregister('UserChanged', this)
+  },
+
+  onShow: function() {
+    if (isRefresh) {
+      isRefresh = false
+      this.setData({
+        username: globalData.isLogin ? globalData.username : '未登錄',
+        isLogin: globalData.isLogin
+      })
+    }
   },
 
   onReady: function() {
@@ -28,7 +54,7 @@ Page({
 
   navigation: function(e) {
     var action = e.currentTarget.dataset.action
-    if (action == 'fav/fav' && !app.isLogin) {
+    if (action == 'fav/fav' && !globalData.isLogin) {
       action = 'login/login?msg=請先登錄'
     }
 
@@ -47,8 +73,10 @@ Page({
     wx.showLoading({
       title: '正在退出登錄...',
     })
-
-    API.logout(this.clearUserInfo, this.clearUserInfo)
+    this.clearUserInfo()
+    EVENT.send('UserChanged', '')
+    isRefresh = false
+    API.logout(function() {}, function() {})
   },
 
   clearUserInfo: function() {

@@ -9,7 +9,7 @@ Component({
       value: ''
     },
 
-    value: {
+    content: {
       type: String,
       value: ''
     },
@@ -31,6 +31,12 @@ Component({
   data: {
     focus: false,
     clearHidden: true
+  },
+
+  ready() {
+    this.setData({
+      value: this.properties.content
+    })
   },
 
   /**
@@ -59,15 +65,17 @@ Component({
         value: value,
         clearHidden: value.length == 0
       })
-      this.triggerEvent('change', e.detail.value)
+      this.triggerEvent('change', value)
     },
 
     clear() {
       this.setData({
         content: '',
+        value: '',
         focus: true,
         clearHidden: true
       })
+      this.triggerEvent('change', '')
     }
   }
 })

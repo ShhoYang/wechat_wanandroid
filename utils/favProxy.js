@@ -4,7 +4,7 @@ const API = getApp().API
  * 收藏操作
  */
 function fav(that, listData, e) {
-  if (!getApp().isLogin) {
+  if (!getApp().globalData.isLogin) {
     wx.navigateTo({
       url: '../../pages/login/login?msg=請先登錄',
     })
