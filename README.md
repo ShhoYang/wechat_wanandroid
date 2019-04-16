@@ -266,8 +266,6 @@ EVENT.send('UserChanged', '')
 **再次感谢 [hongyang玩Android开放Api](https://www.wanandroid.com/blog/show/2)**
 *使用玩Android开放Api的同学请注意，玩Android已迁移到https*
 
-**本项目地址** [Github传送门](https://github.com/haoshiy/wechat_wanandroid)
-
 ![微信扫码打开小程序](https://upload-images.jianshu.io/upload_images/12337722-a5ef77c805cbcb36.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 **End**
