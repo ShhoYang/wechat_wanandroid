@@ -9,7 +9,7 @@
 
 作为一位不知名的Android开发工程师，因为学习能力、智商等限制，再加上急功近利，在Android方面如果不是在工作过程中遇到，真的不想去耐着性子去死磕比较难的东西，花很长的时间，并不一定能得到想要的效果。既然不能在技术的深度上精益求精、独当一面，那么为了能让自己卖个好价钱，就追求广度，去学习更多与移动开发相关的技能，**小程序、Kotlin、Flutter**
 
-之前已写过一篇关于Kotlin的文章[《推荐一个Kotlin项目》](https://www.jianshu.com/p/a05b10976b08)，APP名字叫 [玩Android](https://haoshi.co/wanandroid.apk)，那这篇介绍的是小程序版本的玩Android
+之前已写过一篇关于Kotlin的文章[《推荐一个Kotlin项目》](https://www.jianshu.com/p/a05b10976b08)，APP名字叫 [玩Android](https://fir.im/wanAndroid)，那这篇介绍的是小程序版本的玩Android
 
 **上图**
 

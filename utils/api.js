@@ -1,4 +1,4 @@
-const BASE_URL = 'https://haoshi.co:8443/'
+const BASE_URL = 'https://www.wanandroid.com/'
 
 const P = "POST"
 
