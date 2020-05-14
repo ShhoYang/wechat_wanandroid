@@ -1,9 +1,9 @@
-<view class='container'>
-  <form bindsubmit='login' class='f'>
-    <my-input name='username' class='username' lable='用戶名' content='{{username}}' placeholder='請輸入用戶名' bindchange='usernameInput' />
-    <my-input name='password' class='password' lable='密 碼' content='{{password}}' placeholder='請輸入密碼' password='true' bindchange='passwordInput' />
-    <button type='primary' disabled='{{buttonDisabled}}' form-type='submit'>登錄</button>
+<view class="container">
+  <form bindsubmit="login" class="f">
+    <my-input name="username" class="username" lable="用戶名" content="{{username}}" placeholder="請輸入用戶名" bindchange="usernameInput" />
+    <my-input name="password" class="password" lable="密&emsp;碼" content="{{password}}" placeholder="請輸入密碼" password="true" bindchange="passwordInput" />
+    <button type="primary" disabled="{{buttonDisabled}}" form-type="submit">登錄</button>
   </form>
 
-  <navigator class='register' url='../register/register'>沒有賬號,去註冊</navigator>
+  <navigator class="register" url="../register/register">沒有賬號,去註冊</navigator>
 </view>

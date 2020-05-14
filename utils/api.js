@@ -1,6 +1,6 @@
 const BASE_URL = 'https://www.wanandroid.com/'
 
-const P = "POST"
+const P = 'POST'
 
 const G = 'GET'
 
@@ -13,7 +13,7 @@ function service(method, url, params, success, fail, processCookie) {
     url: url,
     data: params,
     header: {
-      // 'content-type': 'application/json'
+      // 'content-type': 'application/json;charset=UTF-8'
       'content-type': 'application/x-www-form-urlencoded',
       'cookie': getApp().globalData.cookie
     },
@@ -53,7 +53,7 @@ function login(username, password, success, fail) {
       if (res.statusCode == 200) {
         var data = res.data
         if (data.errorCode == 0) {
-          data.data.cookie = res.header["Set-Cookie"]
+          data.data.cookie = res.header['Set-Cookie']
           success(data.data)
         } else {
           fail(data.errorMsg + '')

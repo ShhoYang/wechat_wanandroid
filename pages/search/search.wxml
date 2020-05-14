@@ -1,12 +1,12 @@
-<view class='container'>
-  <view class='form'>
-    <input class='input' placeholder='請輸入搜索內容' maxlength='10' confirm-type='search' bindinput='input' bindconfirm='search'></input>
-    <text class='search' bindtap='search'>搜索</text>
+<view class="container">
+  <view class="form">
+    <input class="input" placeholder="請輸入搜索內容" maxlength="10" confirm-type="search" bindinput="input" bindconfirm="search"></input>
+    <text class="search" bindtap="search">搜索</text>
   </view>
 
-  <text class='tip'>大家都在搜</text>
+  <text class="tip">大家都在搜</text>
 
-  <view class='hotKeys'>
-    <view class='hotKey' hover-class='hotKeyActive' wx:for='{{hotKey}}' wx:key='id' bindtap='searchByHotKey' data-key='{{item.name}}'>{{item.name}}</view>
+  <view class="hotKeys">
+    <view class="hotKey" hover-class="hotKeyActive" wx:for="{{hotKey}}" wx:key="id" bindtap="searchByHotKey" data-key="{{item.name}}">{{item.name}}</view>
   </view>
 </view>

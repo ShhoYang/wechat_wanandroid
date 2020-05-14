@@ -12,7 +12,6 @@ Page({
   },
 
   onLoad: function(options) {
-    getApp().a = LOAD_LIST_PROXY
     LOAD_LIST_PROXY.setPage(this, this.load)
     wx.startPullDownRefresh()
     EVENT.register('UserChanged', this, function() {
@@ -34,7 +33,7 @@ Page({
   onPullDownRefresh: function() {
     if (this.data.banner.length == 0) {
       API.getBanner(data => {
-        this.setData({
+        setData({
           banner: data
         })
       }, errorMsg => {

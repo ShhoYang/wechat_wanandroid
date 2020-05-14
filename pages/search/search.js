@@ -15,7 +15,7 @@ Page({
       wx.hideNavigationBarLoading()
     }, errorMsg => {
       wx.showToast({
-        title: 'errorMsg',
+        title: errorMsg,
         icon: 'none'
       })
       wx.hideNavigationBarLoading()

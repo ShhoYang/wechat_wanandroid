@@ -195,7 +195,6 @@ function send(name, data) {
     callbacks.map((arr) => {
       var self = arr[0]
       var callback = arr[1]
-      console.error(callback)
       callback(self, data)
     })
   }
@@ -228,7 +227,7 @@ function send(name, data) {
 ```
 ```
 //发送一个事件
-EVENT.send('UserChanged', '')
+EVENT.send('UserChanged', {})
 ```
 
 # web-view，你是我哥

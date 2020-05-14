@@ -34,7 +34,6 @@ function send(name, data) {
     callbacks.map((arr) => {
       var self = arr[0]
       var callback = arr[1]
-      console.error(callback)
       callback(self, data)
     })
   }

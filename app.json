@@ -1,5 +1,7 @@
 {
   "pages": [
+    "pages/home/home",
+    "pages/login2/login",
     "pages/hot/hot",
     "pages/android/android",
     "pages/search/search",

@@ -64,6 +64,7 @@ Page({
   },
 
   goLogin: function() {
+    // this.test()
     wx.navigateTo({
       url: '../login/login',
     })
@@ -74,7 +75,7 @@ Page({
       title: '正在退出登錄...',
     })
     this.clearUserInfo()
-    EVENT.send('UserChanged', '')
+    EVENT.send('UserChanged', {})
     isRefresh = false
     API.logout(function() {}, function() {})
   },
@@ -85,6 +86,24 @@ Page({
     this.setData({
       username: '未登錄',
       isLogin: false
+    })
+  },
+
+  test() {
+    wx.setTopBarText({
+      text: 'hello, world!'
+    })
+  },
+
+  selectPhoto: function() {
+    wx.chooseImage({
+      count: 20,
+      sizeType: ['original'],
+      sourceType: ['album'],
+      success(res) {
+        const tempFilePaths = res.tempFilePaths
+        console.error('---------', tempFilePaths)
+      }
     })
   }
 })

@@ -30,7 +30,7 @@
   transition: transform 0.3s;
 }
 
-.holder{
+.holder {
   height: 96rpx;
   background-color: #f8f8f8;
 }

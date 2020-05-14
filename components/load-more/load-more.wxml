@@ -1,16 +1,16 @@
-<view class='loadMore'>
-  <view class='loading' hidden="{{status != 'loading'}}">
+<view class="loadMore">
+  <view class="loading" hidden='{{status != " loading "}}'>
     <view class="loadingIcon"></view>
     <view class="lable">玩命加载中...</view>
   </view>
-  <view class='noData' hidden="{{status != 'noData'}}">
-    <view class='line'></view>
+  <view class="noData" hidden='{{status != " noData "}}'>
+    <view class="line"></view>
     <view class="lable on">暂无数据</view>
-    <view class='line'></view>
+    <view class="line"></view>
   </view>
-  <view class='noMoreData' hidden="{{status != 'noMoreData'}}">
-    <view class='line'></view>
+  <view class="noMoreData" hidden='{{status != " noMoreData "}}'>
+    <view class="line"></view>
     <view class="lable on">我是有底线的</view>
-    <view class='line'></view>
+    <view class="line"></view>
   </view>
 </view>

@@ -59,7 +59,6 @@ Page({
    * 注册
    */
   register: function(e) {
-    console.error(e)
     if (password != confrimPassword) {
       wx.showToast({
         title: '確認密碼和密碼不符',

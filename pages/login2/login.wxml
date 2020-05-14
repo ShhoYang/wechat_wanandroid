@@ -1,0 +1,7 @@
+<view class="container">
+  <form bindsubmit="login" class="f">
+    <my-input name="username" class="username" lable="用戶名" content="{{username}}" placeholder="请输入用戶名" bindchange="usernameInput" />
+    <my-input name="password" class="password" lable="密&emsp;码" content="{{password}}" placeholder="请输入密码" password="true" bindchange="passwordInput" />
+    <button type="primary" size="default" disabled="{{buttonDisabled}}" form-type="submit">登录</button>
+  </form>
+</view>

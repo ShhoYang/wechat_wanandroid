@@ -1,6 +1,5 @@
-const EVENT = require('../../utils/event.js')
-const app = getApp()
-const API = app.API
+const http = require('../../utils/http.js')
+const md5 = require('../../utils/md5.js')
 
 var username = ''
 var password = ''
@@ -20,8 +19,8 @@ Page({
         icon: 'none'
       })
     }
-    var name = app.globalData.username
-    if (name != null && name != '' && name != '未登錄') {
+    var name = getApp().globalData.username
+    if (username) {
       this.setUsername(name)
     }
   },
@@ -60,7 +59,7 @@ Page({
    * 按钮是否可以点击
    */
   buttonDisabled: function() {
-    var disable = username.length == 0 || password.length < 6
+    var disable = username.length == 0 || password.length == 0
     this.setData({
       buttonDisabled: disable
     })
@@ -70,26 +69,24 @@ Page({
    * 登录
    */
   login: function(e) {
-    wx.showToast({
-      title: '正在登錄...',
-      icon: 'loading',
-      duration: 20000
+    wx.showLoading({
+      title: '正在登录...',
     })
     var value = e.detail.value
-    API.login(value.username, value.password, data => {
+    var params = {
+      account: value.username,
+      password: md5.md5(value.password)
+    }
+
+    http.request('user/login', params, data => {
+      getApp().logged(data.account, data.token)
+      wx.hideLoading()
       wx.showToast({
-        title: '登錄成功',
+        title: '登录成功',
         icon: 'success'
       })
-      app.logged(data.username, data.cookie)
-      EVENT.send('UserChanged', {})
       wx.navigateBack({
         delta: 1
-      })
-    }, errorMsg => {
-      wx.showToast({
-        title: errorMsg,
-        icon: 'none'
       })
     })
   }

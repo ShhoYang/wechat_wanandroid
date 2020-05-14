@@ -1,21 +1,21 @@
-<view class='container'>
-  <view class='navBar'>
-    <text wx:for='{{tabs}}' wx:key='*this' id='{{index}}' class="navBarItem {{activeIndex == index ? 'on' : ''}}" bindtap='tabClick'>{{item}}</text>
-    <view class="navBarSlider" style='left: {{sliderLeft}}px; transform: translateX({{sliderOffset}}px); -webkit-transform: translateX({{sliderOffset}}px);'></view>
+<view class="container">
+  <view class="navBar">
+    <text wx:for="{{tabs}}" wx:key="*this" id="{{index}}" class='navBarItem {{activeIndex == index ? " on " : " "}}' bindtap="tabClick">{{item}}</text>
+    <view class="navBarSlider" style="left: {{sliderLeft}}px; transform: translateX({{sliderOffset}}px); -webkit-transform: translateX({{sliderOffset}}px);"></view>
   </view>
 
-  <view class='content'>
-    <view class='holder'></view>
-    <view hidden='{{activeIndex != 0}}'>
-      <navigator class='grid' wx:for='{{authors}}' wx:key='id' url='../wechat/wechat?author={{item.name}}&id={{item.id}}'>
+  <view class="content">
+    <view class="holder"></view>
+    <view hidden="{{activeIndex != 0}}">
+      <navigator class="grid" wx:for="{{authors}}" wx:key="id" url="../wechat/wechat?author={{item.name}}&id={{item.id}}">
         {{item.name}}
       </navigator>
     </view>
-    <scroll-view scroll-y='true' hidden='{{activeIndex != 1}}'>
-      <view wx:for='{{tree}}' wx:key='id'>
-        <view class='parentName'>{{item.name}}</view>
-        <view class='child'>
-          <navigator class='childName' wx:for='{{item.children}}' wx:key='id' wx:for-item='child' url='../project/project?type={{child.name}}&id={{child.id}}'>{{child.name}}</navigator>
+    <scroll-view scroll-y="true" hidden="{{activeIndex != 1}}">
+      <view wx:for="{{tree}}" wx:key="id">
+        <view class="parentName">{{item.name}}</view>
+        <view class="child">
+          <navigator class="childName" wx:for="{{item.children}}" wx:key="id" wx:for-item="child" url="../project/project?type={{child.name}}&id={{child.id}}">{{child.name}}</navigator>
         </view>
       </view>
     </scroll-view>

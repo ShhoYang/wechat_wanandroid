@@ -1,5 +1,5 @@
-<view class="my-input {{focus? 'on': ''}}">
-  <text class='my-input-lable' space='emsp'>{{lable}}</text>
-  <input class='my-input-input' placeholder='{{placeholder}}' password='{{password}}' value='{{content}}' bindfocus='focus' bindblur='blur' bindinput='input' />
-  <image class='my-input-clear' src='../../images/delete.png' hidden='{{clearHidden}}' bindtap='clear' />
+<view class='my-input {{focus? " on ": " "}}'>
+  <text class="my-input-lable" decode="true">{{lable}}</text>
+  <input class="my-input-input" placeholder="{{placeholder}}" password="{{password}}" value="{{content}}" bindfocus="focus" bindblur="blur" bindinput="input" />
+  <image class="my-input-clear" src="../../images/delete.png" hidden="{{clearHidden}}" bindtap="clear" />
 </view>

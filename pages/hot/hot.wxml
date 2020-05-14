@@ -1,7 +1,7 @@
 <import src="../common/list.wxml" />
-<swiper id='banner' indicator-dots='true' autoplay='true' duration='1000' interval='5000' circular='true'>
-  <swiper-item wx:for='{{banner}}' wx:key='id'>
-    <image src='{{item.imagePath}}' mode='scaleToFill' />
+<swiper id="banner" indicator-dots="true" autoplay="true" duration="1000" interval="5000" circular="true">
+  <swiper-item wx:for="{{banner}}" wx:key="id">
+    <image src="{{item.imagePath}}" mode="scaleToFill" />
   </swiper-item>
 </swiper>
 <template is="list" data="{{list,loadMoreStatus}}" />
