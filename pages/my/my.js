@@ -87,23 +87,5 @@ Page({
       username: '未登錄',
       isLogin: false
     })
-  },
-
-  test() {
-    wx.setTopBarText({
-      text: 'hello, world!'
-    })
-  },
-
-  selectPhoto: function() {
-    wx.chooseImage({
-      count: 20,
-      sizeType: ['original'],
-      sourceType: ['album'],
-      success(res) {
-        const tempFilePaths = res.tempFilePaths
-        console.error('---------', tempFilePaths)
-      }
-    })
   }
 })

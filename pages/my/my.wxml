@@ -19,5 +19,4 @@
 
   <button class="logout" type="primary" hidden="{{!isLogin}}" bindtap="logout">退出登錄</button>
 
-  <button class="selectPhoto" type="primary" bindtap="selectPhoto">选择照片</button>
 </view>

@@ -1,7 +1,5 @@
 {
   "pages": [
-    "pages/home/home",
-    "pages/login2/login",
     "pages/hot/hot",
     "pages/android/android",
     "pages/search/search",
@@ -19,7 +17,7 @@
   "window": {
     "backgroundColor": "#f8f8f8",
     "backgroundTextStyle": "dark",
-    "navigationBarBackgroundColor": "#f8f8f8",
+    "navigationBarBackgroundColor": "#ffffff",
     "navigationBarTitleText": "玩Android",
     "navigationBarTextStyle": "black",
     "enablePullDownRefresh": false

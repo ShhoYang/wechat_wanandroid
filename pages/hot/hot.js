@@ -33,7 +33,7 @@ Page({
   onPullDownRefresh: function() {
     if (this.data.banner.length == 0) {
       API.getBanner(data => {
-        setData({
+        this.setData({
           banner: data
         })
       }, errorMsg => {

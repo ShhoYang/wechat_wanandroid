@@ -10,7 +10,7 @@
           <text class="time">{{item.niceDate}}</text>
           <view class="link" hover-class="linkActive" wx:if="{{item.projectLink}}" hidden="{{!item.projectLink}}" catchtap="link" data-link="{{item.projectLink}}">項目鏈接</view>
         </view>
-        <image class="fav" catchtap="fav" data-index="{{index}}" src='{{(item.collect || fav)?" ../../images/ic_fav_1.png ":"../../images/ic_fav_0.png "}}' />
+        <image class="fav" catchtap="fav" data-index="{{index}}" src='{{(item.collect || fav)?"../../images/ic_fav_1.png ":"../../images/ic_fav_0.png "}}' />
       </view>
     </view>
   </scroll-view>
